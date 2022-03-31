@@ -1,0 +1,5 @@
+[Unit]
+Description=System Time Synchronized for user
+RefuseManualStart=yes
+Requires=basic.target
+After=basic.target

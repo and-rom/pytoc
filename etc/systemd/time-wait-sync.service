@@ -1,0 +1,13 @@
+[Unit]
+Description=Wait for Time Sync for user
+Before=time-sync.target
+Wants=time-sync.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c "while [ ! -f /run/systemd/timesync/synchronized ]; do sleep 1; done"
+TimeoutStartSec=infinity
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
