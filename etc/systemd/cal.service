@@ -8,4 +8,4 @@ Wants=time-sync.target
 ExecStart=/usr/bin/python %h/pytoc/cal.py -l INFO
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
