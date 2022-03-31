@@ -1,0 +1,9 @@
+[Unit]
+Description=E-Ink Calendar Timer
+
+[Timer]
+OnCalendar=0,6,12,18:00
+AccuracySec=5s
+
+[Install]
+WantedBy=timers.target
