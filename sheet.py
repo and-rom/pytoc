@@ -267,7 +267,7 @@ class TearOffCalendarSheet:
                 logger.info('EPD rendering completed successfully')
         else:
             pageBlack.save(os.path.join(self.image_path, 'sheet.png'))
-            logger.info('There is no EPD. Save image to file.')
+            logger.info('There is no EPD. Image saved to file.')
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)

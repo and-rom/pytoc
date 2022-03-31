@@ -15,8 +15,6 @@ parser._optionals.title = 'Options'
 
 args = parser.parse_args()
 
-print(args.log_level)
-
-logging.basicConfig(level=getattr(logging, args.log_level))
+logging.basicConfig(level=getattr(logging, args.log_level), format='%(levelname)s - %(name)s - %(message)s')
 sheet = TearOffCalendarSheet(args.image)
 sheet.draw()

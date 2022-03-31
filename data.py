@@ -104,6 +104,8 @@ class TearOffCalendarData:
         owm = OWM()
         cal_data['forecast'] = owm.get_forecast(coord)
 
+        logger.info('Calendar data collected')
+
         return cal_data
 
 if __name__ == "__main__":
