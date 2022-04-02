@@ -108,7 +108,7 @@ class TearOffCalendarSheet:
 
         # Where to draw parts that may be red.
         i = 0 if not cal_data['dayoff'] or not screen else 1
-        logging.debug('Red goes on black for day', True if i == 0 else False)
+        logging.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
 
 
         '''
@@ -157,7 +157,7 @@ class TearOffCalendarSheet:
             if cal_data['holiday_type'] in ['int', 'un']:
                 holiday_title = '\U0001F310 ' + cal_data['holiday_title']
             j = 0 if not cal_data['holiday_dayoff'] or not screen else 1
-            logging.debug('Red goes on black for holiday', True if j == 0 else False)
+            logging.debug('Red goes on black for holiday: ' + 'yes' if j == 0 else 'no')
             col = 25
             holiday_title_arr = textwrap.wrap(cal_data['holiday_title'], width=col)
             while len(holiday_title_arr) > 2:
