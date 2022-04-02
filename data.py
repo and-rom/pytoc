@@ -66,7 +66,7 @@ class TearOffCalendarData:
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'misc', 'holidays.json'), 'rb') as f:
             data = json.load(f)
             if cd[0] in data["daysOff"][cd[1]-1]:
-                dayoff = True
+                cal_data['dayoff'] = True
             if data['holidays'][cd[1]-1][cd[0]-1]['title'] != '':
                 cal_data['holiday'] = True
                 cal_data['holiday_title'] = data['holidays'][cd[1]-1][cd[0]-1]['title']
