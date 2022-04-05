@@ -264,6 +264,30 @@ class TearOffCalendarSheet:
 
                 time.sleep(2)
                 self.epd.sleep()
+
+                pageBlack.save(os.path.join(self.image_path, 'sheet_b.png'))
+                pageRed.save(os.path.join(self.image_path, 'sheet_r.png'))
+            except IOError as e:
+                print(e)
+            else:
+                logger.info('EPD rendering completed successfully')
+        else:
+            pageBlack.save(os.path.join(self.image_path, 'sheet.png'))
+            logger.info('There is no EPD. Image saved to file.')
+
+    def redraw(self):
+        if screen:
+            try:
+                pageBlack = Image.open(os.path.join(self.back_image_path, 'sheet_b.png'))
+                pageRed = Image.open(os.path.join(self.back_image_path, 'sheet_r.png'))
+
+                self.epd.init()
+                self.epd.Clear()
+
+                self.epd.display(epd.getbuffer(pageBlack), epd.getbuffer(pageRed))
+
+                time.sleep(2)
+                self.epd.sleep()
             except IOError as e:
                 print(e)
             else:
