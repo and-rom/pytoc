@@ -63,13 +63,12 @@ class TearOffCalendarSheet:
         t = DeltaTemplate(fmt)
         return t.substitute(**d)
 
-    def __init__(self, image_path = '', back_image_path = ''):
+    def __init__(self, image_path = ''):
         p = os.path.dirname(os.path.realpath(__file__))
         self.clip_path = os.path.join(p, 'clip')
         self.fonts_path = os.path.join(p, 'fonts')
         self.icons_path = os.path.join(p, 'icons')
         self.image_path = image_path
-        self.back_image_path = back_image_path
 
         if screen:
             self.epd = epd4in2bc.EPD()
@@ -278,8 +277,8 @@ class TearOffCalendarSheet:
     def redraw(self):
         if screen:
             try:
-                pageBlack = Image.open(os.path.join(self.back_image_path, 'sheet_b.png'))
-                pageRed = Image.open(os.path.join(self.back_image_path, 'sheet_r.png'))
+                pageBlack = Image.open(os.path.join(self.image_path, 'sheet_b.png'))
+                pageRed = Image.open(os.path.join(self.image_path, 'sheet_r.png'))
 
                 self.epd.init()
                 self.epd.Clear()
@@ -299,7 +298,7 @@ class TearOffCalendarSheet:
     def draw_back(self):
         if screen:
             try:
-                page = Image.open(os.path.join(self.back_image_path, 'backsheet.png'))
+                page = Image.open(os.path.join(self.image_path, 'backsheet.png'))
 
                 self.epd.Init_4Gray()
                 self.epd.Clear()

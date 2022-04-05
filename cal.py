@@ -14,7 +14,6 @@ parser.add_argument('-t', '--template', dest='template', help='name of calendar 
 parser.add_argument('-i', '--image', dest='image', help='path for image when there is no screen', default='.')
 parser.add_argument('-b', '--back', dest='back', help='display back image on screen', action='store_true')
 parser.add_argument('-f', '--front', dest='front', help='display front image on screen', action='store_true')
-parser.add_argument('-bi', '--back-image', dest='back_image', help='path for back image', default='.')
 parser.add_argument('-l', '--log-level', dest='log_level', choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'], default='ERROR')
 
 parser._optionals.title = 'Options'
@@ -23,14 +22,14 @@ args = parser.parse_args()
 
 logging.basicConfig(level=getattr(logging, args.log_level), format='%(levelname)s - %(name)s - %(message)s')
 
-sheet = TearOffCalendarSheet(args.image, args.back_image)
+sheet = TearOffCalendarSheet(args.images)
 if not args.back:
     if not args.front:
         sheet.draw()
 
         backpages = [XKCD, BashOrg]
 
-        backsheet = random.choice(backpages)(args.back_image)
+        backsheet = random.choice(backpages)(args.image)
         backsheet.draw()
     else:
         sheet.redraw()
