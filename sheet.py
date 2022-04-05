@@ -63,30 +63,32 @@ class TearOffCalendarSheet:
         t = DeltaTemplate(fmt)
         return t.substitute(**d)
 
-    def __init__(self, image_path = ''):
+    def __init__(self, image_path = '', back_image_path = ''):
         p = os.path.dirname(os.path.realpath(__file__))
         self.clip_path = os.path.join(p, 'clip')
         self.fonts_path = os.path.join(p, 'fonts')
         self.icons_path = os.path.join(p, 'icons')
         self.image_path = image_path
+        self.back_image_path = back_image_path
+
+        if screen:
+            self.epd = epd4in2bc.EPD()
+            self.page_w = epd.height
+            self.page_h = epd.width
+        else:
+            if self.image_path == '':
+                logger.error('There is no screen to draw on and image path not specified')
+                return
+            self.page_w = 300
+            self.page_h = 400
+
 
     def draw(self):
         cal = TearOffCalendarData()
         cal_data = cal.get_data()
 
-        if screen:
-            epd = epd4in2bc.EPD()
-            page_w = epd.height
-            page_h = epd.width
-        else:
-            if self.image_path == '':
-                logger.error('There is no screen to draw on and image path not specified')
-                return
-            page_w = 300
-            page_h = 400
-
-        pageBlack = Image.new('1', (page_w, page_h), 255)
-        pageRed = Image.new('1', (page_w, page_h), 255)
+        pageBlack = Image.new('1', (self.page_w, self.page_h), 255)
+        pageRed = Image.new('1', (self.page_w, self.page_h), 255)
 
         draw = (ImageDraw.Draw(pageBlack), ImageDraw.Draw(pageRed))
 
@@ -121,7 +123,7 @@ class TearOffCalendarSheet:
         #draw[0].rectangle((80, 120, 220, 210), outline = 0)
         day_font = ImageFont.truetype(os.path.join(self.fonts_path, 'AbrilFatface-Regular.ttf'), 125)
         day_w, day_h = draw[i].textsize(day, font=day_font)
-        draw[i].text(((page_w-day_w)/2, 77), day, font=day_font)
+        draw[i].text(((self.page_w-day_w)/2, 77), day, font=day_font)
 
         '''
                 Draw month
@@ -133,7 +135,7 @@ class TearOffCalendarSheet:
         #draw[0].rectangle((60, 85, 240, 110), outline = 0)
         month_font = ImageFont.truetype(os.path.join(self.fonts_path, 'PlayfairDisplay-ExtraBold.ttf'), 32)
         month_w, month_h = draw[0].textsize(month, font=month_font)
-        draw[0].text(((page_w-month_w)/2, 75), month, font=month_font)
+        draw[0].text(((self.page_w-month_w)/2, 75), month, font=month_font)
 
         '''
                 Draw weekday
@@ -145,7 +147,7 @@ class TearOffCalendarSheet:
         #draw[0].rectangle((60, 220, 240, 245), outline = 0)
         weekday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'PlayfairDisplay-Bold.ttf'), 22)
         weekday_w, weekday_h = draw[i].textsize(weekday, font=weekday_font)
-        draw[i].text(((page_w-weekday_w)/2, 217), weekday, font=weekday_font)
+        draw[i].text(((self.page_w-weekday_w)/2, 217), weekday, font=weekday_font)
 
         '''
                 Draw holiday title
@@ -167,11 +169,11 @@ class TearOffCalendarSheet:
             holiday_font_size = 22
             holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Bold.ttf'), holiday_font_size)
             holiday_w, holiday_h = draw[j].textsize(holiday_title, font=holiday_font)
-            while page_w - holiday_w < 80 or holiday_h > 45:
+            while self.page_w - holiday_w < 80 or holiday_h > 45:
                 holiday_font_size -=2
                 holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Bold.ttf'), holiday_font_size)
                 holiday_w, holiday_h = draw[j].textsize(holiday_title, font=holiday_font)
-            draw[j].text(((page_w-holiday_w)/2, 57-holiday_h/2), holiday_title, font=holiday_font, align='center')
+            draw[j].text(((self.page_w-holiday_w)/2, 57-holiday_h/2), holiday_title, font=holiday_font, align='center')
 
 
         '''
@@ -210,7 +212,7 @@ class TearOffCalendarSheet:
         sm_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 16)
         draw[0].text((10, 110), s, font=sm_font, fill='black')
         m_w, m_h = draw[0].textsize(m, font=sm_font)
-        draw[0].text((page_w-10-m_w, 110), m, font=sm_font, align='right')
+        draw[0].text((self.page_w-10-m_w, 110), m, font=sm_font, align='right')
 
         c = 'Луна в созвездии {}'.format(self.CONSTELLATIONS[cal_data['constellation']])
         #print(c)
@@ -218,7 +220,7 @@ class TearOffCalendarSheet:
         #draw[0].rectangle((...), outline = 0)
         c_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Italic.ttf'), 16)
         c_w, c_h = draw[0].textsize(c, font=c_font)
-        draw[0].text(((page_w-c_w)/2, 245), c, font=c_font)
+        draw[0].text(((self.page_w-c_w)/2, 245), c, font=c_font)
 
         '''
                 Draw weather forecast
@@ -255,13 +257,13 @@ class TearOffCalendarSheet:
 
         if screen:
             try:
-                epd.init()
-                epd.Clear()
+                self.epd.init()
+                self.epd.Clear()
 
-                epd.display(epd.getbuffer(pageBlack), epd.getbuffer(pageRed))
+                self.epd.display(epd.getbuffer(pageBlack), epd.getbuffer(pageRed))
 
                 time.sleep(2)
-                epd.sleep()
+                self.epd.sleep()
             except IOError as e:
                 print(e)
             else:
@@ -269,6 +271,25 @@ class TearOffCalendarSheet:
         else:
             pageBlack.save(os.path.join(self.image_path, 'sheet.png'))
             logger.info('There is no EPD. Image saved to file.')
+
+    def draw_back(self):
+        if screen:
+            try:
+                page = Image.open(os.path.join(self.back_image_path, 'backsheet.png'))
+
+                self.epd.Init_4Gray()
+                self.epd.Clear()
+
+                self.epd.display_4Gray(epd.getbuffer_4Gray(page))
+
+                time.sleep(2)
+                self.epd.sleep()
+            except IOError as e:
+                print(e)
+            else:
+                logger.info('EPD rendering completed successfully')
+        else:
+            logger.info('There is no EPD. You may open saved image from file.')
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
