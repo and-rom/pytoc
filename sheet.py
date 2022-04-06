@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 import time
 screen = True
 try:
-    from waveshare_epd import epd4in2bc
+    from waveshare_epd import epd4in2bc, epd4in2
 except ImportError:
     screen = False
 
@@ -72,6 +72,7 @@ class TearOffCalendarSheet:
 
         if screen:
             self.epd = epd4in2bc.EPD()
+            self.epd_b = epd4in2.EPD()
             self.page_w = self.epd.height
             self.page_h = self.epd.width
         else:
@@ -300,10 +301,10 @@ class TearOffCalendarSheet:
             try:
                 page = Image.open(os.path.join(self.image_path, 'backsheet.png'))
 
-                self.epd.Init_4Gray()
-                self.epd.Clear()
+                self.epd_b.Init_4Gray()
+                self.epd_b.Clear()
 
-                self.epd.display_4Gray(self.epd.getbuffer_4Gray(page))
+                self.epd_b.display_4Gray(self.epd_b.getbuffer_4Gray(page))
 
                 time.sleep(2)
                 self.epd.sleep()
