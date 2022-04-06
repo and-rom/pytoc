@@ -43,6 +43,7 @@ class BashOrg():
             if rank > 50 and chars < 400:
                 break
             attempt += 1
+        logger.info('Item for back page found')
         return (title, date, quote_lines)
 
     def draw(self):
@@ -83,6 +84,7 @@ class BashOrg():
         draw.text(((page_w-quote_w)/2, (page_h-quote_h)/2), quote, font=font, fill='black')
         
         page.save(os.path.join(self.image_path, 'backsheet.png'))
+        logger.info('Back page image saved to file.')
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)

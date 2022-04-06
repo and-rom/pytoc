@@ -27,7 +27,7 @@ class XKCD():
         attempt = 0
         while True:
             if attempt > 5:
-                raise SystemError('Not found fitting item') 
+                raise SystemError('Not found fitting item')
             response = self.session.get('https://xkcd.ru/random')
 
             tree = html.fromstring(response.content)
@@ -47,6 +47,7 @@ class XKCD():
             else:
                 logger.debug('doesn\'t fit')
             attempt += 1
+        logger.info('Item for back page found')
         return (title, image, text)
 
     def draw(self):
@@ -121,6 +122,7 @@ class XKCD():
         page.paste(image, (int((page_w - image_w)/2), int((page_h - image_h)/2)))
 
         page.save(os.path.join(self.image_path, 'backsheet.png'))
+        logger.info('Back page image saved to file.')
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
