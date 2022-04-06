@@ -25,11 +25,11 @@ logging.basicConfig(level=getattr(logging, args.log_level), format='%(levelname)
 sheet = TearOffCalendarSheet(args.image)
 if not args.back:
     if not args.front:
-        sheet.draw()
-
         backpages = [XKCD, BashOrg]
-
         backsheet = random.choice(backpages)(args.image)
+
+        sheet.backpage_name = backsheet.name
+        sheet.draw()
         backsheet.draw()
     else:
         sheet.redraw()

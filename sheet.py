@@ -64,6 +64,7 @@ class TearOffCalendarSheet:
         return t.substitute(**d)
 
     def __init__(self, image_path = ''):
+        self.__backpage_name = ''
         p = os.path.dirname(os.path.realpath(__file__))
         self.clip_path = os.path.join(p, 'clip')
         self.fonts_path = os.path.join(p, 'fonts')
@@ -82,6 +83,16 @@ class TearOffCalendarSheet:
             self.page_w = 300
             self.page_h = 400
 
+    @property
+    def backpage_name(self):
+        return self.__backpage_name
+
+    @backpage_name.setter
+    def backpage_name(self, s):
+        if s != '':
+            self.__backpage_name = s
+        else:
+            raise ValueError
 
     def draw(self):
         cal = TearOffCalendarData()
@@ -93,7 +104,7 @@ class TearOffCalendarSheet:
         draw = (ImageDraw.Draw(pageBlack), ImageDraw.Draw(pageRed))
 
         '''
-                Draw corners
+            Draw corners
         '''
 
         corner = Image.open(os.path.join(self.clip_path, 'corner.png'), mode='r')
@@ -114,7 +125,7 @@ class TearOffCalendarSheet:
 
 
         '''
-                Draw day
+            Draw day
         '''
 
         day = str(cal_data['day'])
@@ -126,7 +137,7 @@ class TearOffCalendarSheet:
         draw[i].text(((self.page_w-day_w)/2, 77), day, font=day_font)
 
         '''
-                Draw month
+            Draw month
         '''
 
         month = self.MONTHS[cal_data['month']-1].upper()
@@ -138,7 +149,7 @@ class TearOffCalendarSheet:
         draw[0].text(((self.page_w-month_w)/2, 75), month, font=month_font)
 
         '''
-                Draw weekday
+            Draw weekday
         '''
 
         weekday = self.WEEKDAYS[cal_data['weekday']].upper()
@@ -150,7 +161,7 @@ class TearOffCalendarSheet:
         draw[i].text(((self.page_w-weekday_w)/2, 217), weekday, font=weekday_font)
 
         '''
-                Draw holiday title
+            Draw holiday title
         '''
 
         #draw[0].rectangle((38, 35, 262, 80), outline = 0)
@@ -177,7 +188,7 @@ class TearOffCalendarSheet:
 
 
         '''
-                Draw sun and moon info
+            Draw sun and moon info
         '''
 
         #draw[0].line((10, 89, 290, 89), fill = 0)
@@ -223,7 +234,7 @@ class TearOffCalendarSheet:
         draw[0].text(((self.page_w-c_w)/2, 245), c, font=c_font)
 
         '''
-                Draw weather forecast
+            Draw weather forecast
         '''
 
         y = 270
@@ -252,7 +263,16 @@ class TearOffCalendarSheet:
             pos += 56
 
         '''
-                Send images to screen or save to file
+            Draw back page source name
+        '''
+
+        if self.__backpage_name != '':
+            backpage_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 12)
+            backpage_name_w, backpage_name_h = draw[0].textsize(self.__backpage_name, font=backpage_name_font)
+            draw[0].text(((self.page_w-backpage_name_w)/2, 375), self.__backpage_name, font=backpage_name_font)
+
+        '''
+            Send images to screen or save to file
         '''
 
         if screen:

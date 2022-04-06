@@ -13,10 +13,15 @@ logger = logging.getLogger(__name__)
 class XKCD():
 
     def __init__(self, image_path = ''):
+        self.__name = 'xkcd.ru'
         p = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
         self.fonts_path = os.path.join(p, 'fonts')
         self.image_path = image_path
         self.session = requests.session()        
+
+    @property
+    def name(self):
+        return self.__name
 
     def get(self):
         attempt = 0
