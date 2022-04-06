@@ -259,7 +259,7 @@ class TearOffCalendarSheet:
                 self.epd.init()
                 self.epd.Clear()
 
-                self.epd.display(epd.getbuffer(pageBlack), epd.getbuffer(pageRed))
+                self.epd.display(self.epd.getbuffer(pageBlack), self.epd.getbuffer(pageRed))
 
                 time.sleep(2)
                 self.epd.sleep()
@@ -283,7 +283,7 @@ class TearOffCalendarSheet:
                 self.epd.init()
                 self.epd.Clear()
 
-                self.epd.display(epd.getbuffer(pageBlack), epd.getbuffer(pageRed))
+                self.epd.display(self.epd.getbuffer(pageBlack), self.epd.getbuffer(pageRed))
 
                 time.sleep(2)
                 self.epd.sleep()
@@ -303,7 +303,7 @@ class TearOffCalendarSheet:
                 self.epd.Init_4Gray()
                 self.epd.Clear()
 
-                self.epd.display_4Gray(epd.getbuffer_4Gray(page))
+                self.epd.display_4Gray(self.epd.getbuffer_4Gray(page))
 
                 time.sleep(2)
                 self.epd.sleep()
