@@ -72,8 +72,8 @@ class TearOffCalendarSheet:
 
         if screen:
             self.epd = epd4in2bc.EPD()
-            self.page_w = epd.height
-            self.page_h = epd.width
+            self.page_w = self.epd.height
+            self.page_h = self.epd.width
         else:
             if self.image_path == '':
                 logger.error('There is no screen to draw on and image path not specified')
