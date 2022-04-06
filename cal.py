@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 logging.basicConfig(level=getattr(logging, args.log_level), format='%(levelname)s - %(name)s - %(message)s')
 
-sheet = TearOffCalendarSheet(args.images)
+sheet = TearOffCalendarSheet(args.image)
 if not args.back:
     if not args.front:
         sheet.draw()
