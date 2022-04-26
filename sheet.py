@@ -274,28 +274,15 @@ class TearOffCalendarSheet:
         '''
             Send images to screen or save to file
         '''
-
         if screen:
-            try:
-                self.epd.init()
-                self.epd.Clear()
-
-                self.epd.display(self.epd.getbuffer(pageBlack), self.epd.getbuffer(pageRed))
-
-                time.sleep(2)
-                self.epd.sleep()
-
-                pageBlack.save(os.path.join(self.image_path, 'sheet_b.png'))
-                pageRed.save(os.path.join(self.image_path, 'sheet_r.png'))
-            except IOError as e:
-                print(e)
-            else:
-                logger.info('EPD rendering completed successfully')
+            pageBlack.save(os.path.join(self.image_path, 'sheet_b.png'))
+            pageRed.save(os.path.join(self.image_path, 'sheet_r.png'))
+            logger.info('Images for EPD saved to files.')
         else:
             pageBlack.save(os.path.join(self.image_path, 'sheet.png'))
             logger.info('There is no EPD. Image saved to file.')
 
-    def redraw(self):
+    def display_front(self):
         if screen:
             try:
                 pageBlack = Image.open(os.path.join(self.image_path, 'sheet_b.png'))
@@ -313,10 +300,9 @@ class TearOffCalendarSheet:
             else:
                 logger.info('EPD rendering completed successfully')
         else:
-            pageBlack.save(os.path.join(self.image_path, 'sheet.png'))
-            logger.info('There is no EPD. Image saved to file.')
+            logger.info('There is no EPD. You may open saved image from file.')
 
-    def draw_back(self):
+    def display_back(self):
         if screen:
             try:
                 page = Image.open(os.path.join(self.image_path, 'backsheet.png'))

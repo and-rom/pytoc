@@ -31,7 +31,8 @@ if not args.back:
         sheet.backpage_name = backsheet.name
         sheet.draw()
         backsheet.draw()
+        sheet.display_front()
     else:
-        sheet.redraw()
+        sheet.display_front()
 else:
-    sheet.draw_back()
+    sheet.display_back()
