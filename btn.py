@@ -33,6 +33,7 @@ def main():
 
         logging.basicConfig(level=getattr(logging, args.log_level), format='%(levelname)s - %(name)s - %(message)s')
         logger = logging.getLogger('btn')
+        logger.info('Started')
 
         GPIO.setmode(GPIO.BCM)
 
