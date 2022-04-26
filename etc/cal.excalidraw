@@ -26,7 +26,8 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1648809387059,
-      "link": null
+      "link": null,
+      "locked": false
     },
     {
       "type": "line",
@@ -52,6 +53,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -92,6 +94,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -132,6 +135,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -172,6 +176,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -212,6 +217,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "0",
@@ -245,6 +251,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "12",
@@ -278,6 +285,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "6",
@@ -311,6 +319,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "18",
@@ -344,6 +353,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "3",
@@ -377,6 +387,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "9",
@@ -410,6 +421,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "15",
@@ -443,6 +455,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "21",
@@ -476,6 +489,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -544,6 +558,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -612,6 +627,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -680,6 +696,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -748,6 +765,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "e",
@@ -781,6 +799,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "m",
@@ -814,6 +833,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "d",
@@ -847,6 +867,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "e",
@@ -880,6 +901,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "n",
@@ -913,6 +935,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -1003,6 +1026,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -1057,6 +1081,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -1115,6 +1140,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -1161,6 +1187,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1201,6 +1228,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "0",
@@ -1234,6 +1262,7 @@
       "boundElements": [],
       "updated": 1648809387059,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "6",
@@ -1267,6 +1296,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "12",
@@ -1300,6 +1330,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "18",
@@ -1333,6 +1364,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "23",
@@ -1366,6 +1398,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1406,6 +1439,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1446,6 +1480,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1486,6 +1521,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1526,6 +1562,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1566,6 +1603,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1614,6 +1652,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1662,6 +1701,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1710,6 +1750,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1757,7 +1798,8 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1648809387060,
-      "link": null
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -1783,6 +1825,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "(38, 261)",
@@ -1816,6 +1859,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "(262, 361)",
@@ -1849,6 +1893,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "220",
@@ -1882,6 +1927,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "100",
@@ -1915,6 +1961,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1955,6 +2002,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -1995,6 +2043,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2035,6 +2084,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "94,",
@@ -2068,6 +2118,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "150,",
@@ -2101,6 +2152,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "206,",
@@ -2134,6 +2186,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "56",
@@ -2167,6 +2220,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2207,6 +2261,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": ",320",
@@ -2240,6 +2295,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2280,6 +2336,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": ",281",
@@ -2313,6 +2370,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "20",
@@ -2346,6 +2404,7 @@
       "boundElements": [],
       "updated": 1648809387060,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "80",
@@ -2379,6 +2438,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "56",
@@ -2412,6 +2472,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "56",
@@ -2445,6 +2506,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "56",
@@ -2478,6 +2540,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2518,6 +2581,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2558,6 +2622,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2598,6 +2663,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2638,6 +2704,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "66,",
@@ -2671,6 +2738,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "122,",
@@ -2704,6 +2772,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "178,",
@@ -2737,6 +2806,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "234,",
@@ -2769,7 +2839,8 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1648809387061,
-      "link": null
+      "link": null,
+      "locked": false
     },
     {
       "type": "line",
@@ -2795,6 +2866,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2835,6 +2907,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2875,6 +2948,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2915,6 +2989,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2955,6 +3030,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -2995,6 +3071,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -3035,6 +3112,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -3075,6 +3153,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -3115,6 +3194,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -3155,6 +3235,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -3305,6 +3386,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -3507,6 +3589,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -3693,6 +3776,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -3923,6 +4007,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -4033,6 +4118,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -4135,6 +4221,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -4177,6 +4264,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -4323,6 +4411,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -4461,6 +4550,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -4523,6 +4613,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -4673,6 +4764,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -4747,6 +4839,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -5069,6 +5162,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -5383,6 +5477,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -5481,6 +5576,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -5607,6 +5703,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -5761,6 +5858,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -5883,6 +5981,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -5993,6 +6092,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6135,6 +6235,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6213,6 +6314,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6279,6 +6381,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6357,6 +6460,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6403,6 +6507,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6581,6 +6686,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6695,6 +6801,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6733,6 +6840,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6775,6 +6883,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6813,6 +6922,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6859,6 +6969,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6901,6 +7012,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6939,6 +7051,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -6981,6 +7094,7 @@
       "boundElements": [],
       "updated": 1648809387061,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7019,6 +7133,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7057,6 +7172,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7099,6 +7215,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7141,6 +7258,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7179,6 +7297,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7217,6 +7336,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7255,6 +7375,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7301,6 +7422,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7347,6 +7469,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7385,6 +7508,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7423,6 +7547,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7653,6 +7778,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7863,6 +7989,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7909,6 +8036,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7951,6 +8079,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -7997,6 +8126,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8035,6 +8165,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8073,6 +8204,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8135,6 +8267,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8193,6 +8326,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8255,6 +8389,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8313,6 +8448,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8383,6 +8519,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8437,6 +8574,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8499,6 +8637,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8709,6 +8848,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8871,6 +9011,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8937,6 +9078,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -8999,6 +9141,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "points": [
         [
           0,
@@ -9152,7 +9295,8 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1648840707653,
-      "link": null
+      "link": null,
+      "locked": false
     },
     {
       "type": "ellipse",
@@ -9177,7 +9321,8 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1648840707653,
-      "link": null
+      "link": null,
+      "locked": false
     },
     {
       "type": "ellipse",
@@ -9202,7 +9347,8 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1648840707653,
-      "link": null
+      "link": null,
+      "locked": false
     },
     {
       "type": "line",
@@ -9228,6 +9374,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9268,6 +9415,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9308,6 +9456,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9348,6 +9497,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9388,6 +9538,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "37",
@@ -9421,6 +9572,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "42",
@@ -9454,6 +9606,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "52",
@@ -9486,7 +9639,8 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1648840707653,
-      "link": null
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -9512,6 +9666,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "94",
@@ -9545,6 +9700,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9585,6 +9741,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9625,6 +9782,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9665,6 +9823,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9705,6 +9864,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "18,5",
@@ -9738,6 +9898,7 @@
       "boundElements": [],
       "updated": 1648809387062,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "18,5",
@@ -9771,6 +9932,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9811,6 +9973,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9851,6 +10014,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9891,6 +10055,7 @@
       "boundElements": [],
       "updated": 1648840688795,
       "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": null,
       "lastCommittedPoint": null,
@@ -9931,6 +10096,7 @@
       "boundElements": [],
       "updated": 1648809459665,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "23,5",
@@ -9964,6 +10130,7 @@
       "boundElements": [],
       "updated": 1648809463398,
       "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "18,5",
