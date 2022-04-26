@@ -1,0 +1,13 @@
+[Unit]
+Description=E-Ink Calendar page switcher
+
+After=cal.service
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python %h/pytoc/btn.py --log-level INFO --image /dev/shm --pin 26
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target
