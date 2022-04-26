@@ -1,5 +1,5 @@
 [Unit]
-Description=E-Ink Calendar             
+Description=E-Ink Calendar
 
 After=time-sync.target
 Wants=time-sync.target
