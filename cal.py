@@ -11,7 +11,7 @@ from backpage.bashorg import BashOrg
 parser = argparse.ArgumentParser(prog='pytoc', description='Python Tear-Off Calendar', usage='%(prog)s [options]')
 
 parser.add_argument('-t', '--template', dest='template', help='name of calendar sheet template')
-parser.add_argument('-i', '--image', dest='image', help='path for image when there is no screen', default='.')
+parser.add_argument('-i', '--image', dest='image', help='path for images', default='.')
 parser.add_argument('-b', '--back', dest='back', help='display back image on screen', action='store_true')
 parser.add_argument('-f', '--front', dest='front', help='display front image on screen', action='store_true')
 parser.add_argument('-l', '--log-level', dest='log_level', choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'], default='ERROR')
