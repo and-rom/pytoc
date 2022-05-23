@@ -9,6 +9,7 @@ from datetime import datetime
 import locale
 import ephem
 from owm import OWM
+from gm import GM
 from pprint import pprint
 
 logger = logging.getLogger(__name__)

@@ -1,1 +1,2 @@
 owm_cfg.py filter=crypt
+gm_cfg.py filter=crypt
