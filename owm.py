@@ -98,5 +98,5 @@ class OWM:
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     owm = OWM()
-    forecast = owm.get_forecast(('55.583710', '37.590857'))
+    forecast = owm.get_forecast(('55.755864', '37.617698'))
     pprint(forecast)
