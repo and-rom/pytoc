@@ -237,17 +237,16 @@ class TearOffCalendarSheet:
             Draw weather forecast
         '''
 
+        y = 270
+        #draw[0].rectangle((38, y, 262, y+83), outline = 0)
+
+        #draw[0].line((94, y, 94, y+83), fill = 0)
+        #draw[0].line((150, y, 150, y+83), fill = 0)
+        #draw[0].line((206, y, 206, y+83), fill = 0)
+
+        #draw[0].line((38, y+20, 262, y+20), fill = 0)
+        #draw[0].line((38, y+63, 262, y+63), fill = 0)
         if cal_data['forecast']:
-            y = 270
-            #draw[0].rectangle((38, y, 262, y+83), outline = 0)
-
-            #draw[0].line((94, y, 94, y+83), fill = 0)
-            #draw[0].line((150, y, 150, y+83), fill = 0)
-            #draw[0].line((206, y, 206, y+83), fill = 0)
-
-            #draw[0].line((38, y+20, 262, y+20), fill = 0)
-            #draw[0].line((38, y+63, 262, y+63), fill = 0)
-
             forecast_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 18)
             pos = 0
             for part in cal_data['forecast']['order']:
@@ -262,6 +261,9 @@ class TearOffCalendarSheet:
                 pageBlack.paste(icon, (46+pos, y+22), icon)
 
                 pos += 56
+        else:
+            no_conn = Image.open(os.path.join(self.clip_path, 'no_connection.png'), mode='r')
+            pageBlack.paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
 
         '''
             Draw back page source name
