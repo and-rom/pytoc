@@ -4,6 +4,7 @@
 import os
 import logging
 import json
+import configparser
 from datetime import datetime
 import locale
 import ephem
@@ -52,6 +53,19 @@ class TearOffCalendarData:
 
         cal_data = {}
 
+        if os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'config.ini')):
+            config = configparser.ConfigParser()
+            config.read(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'config.ini'))
+            cal_data['location'] = config['Common']['CurrentLocation']
+            cal_data['latitude'] = config[cal_data['location']]['Latitude']
+            cal_data['longitude'] = config[cal_data['location']]['Longitude']
+            weather_service = config['Common']['WeatherService']
+        else:
+            cal_data['location'] = 'Moscow'
+            cal_data['latitude'] = 55.755864
+            cal_data['longitude'] = 37.617698
+            weather_service = None
+
         today = datetime.today()
         btoday = today.replace(hour=0, minute=0, second=0, microsecond=0)
         etoday = today.replace(hour=23, minute=59, second=59, microsecond=999)
@@ -73,9 +87,8 @@ class TearOffCalendarData:
                 cal_data['holiday_dayoff'] = bool(data['holidays'][cd[1]-1][cd[0]-1]['dayoff'])
                 cal_data['holiday_type'] = data['holidays'][cd[1]-1][cd[0]-1]['type']
 
-        coord = '55.583710', '37.590857'
         home = ephem.Observer()
-        home.lat, home.lon = coord
+        home.lat, home.lon = cal_data['latitude'], cal_data['longitude']
         home.date = ephem.now()
         sun = ephem.Sun()
         sun.compute(home)
@@ -101,8 +114,11 @@ class TearOffCalendarData:
         cal_data['moon_day'] = int(home.date - ephem.previous_new_moon(home.date))+1
         cal_data['moon_phase_id'] = self.__get_moon_phase(home)
 
-        owm = OWM()
-        cal_data['forecast'] = owm.get_forecast(coord)
+        if weather_service:
+            weather = globals()[weather_service]()
+            cal_data['forecast'] = weather.get_forecast((cal_data['latitude'], cal_data['longitude']))
+        else:
+            cal_data['forecast'] = {}
 
         logger.info('Calendar data collected')
 
