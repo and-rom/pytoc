@@ -48,7 +48,7 @@ class OWM:
             'lang': 'ru',
             'exclude': 'current,minutely,daily'}
         try:
-            result = requests.get('https://api.openweathermap.org/data/2.5/onecall', params=payload)
+            result = requests.get('https://api.openweathermap.org/data/2.5/onecall', params=payload, timeout=(10,30))
         except Exception as e:
             logger.error('Error getting weather forecast data')
             return {}
