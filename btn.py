@@ -50,11 +50,11 @@ def main():
             if (buttonState == GPIO.HIGH and not lock):
                 lock = True
                 if not back:
-                    print('sheet.display_back()')
+                    sheet.display_back()
                     logger.info('Back drawn')
                     back = True
                 else:
-                    print('sheet.display_front()')
+                    sheet.display_front()
                     logger.info('Front drawn')
                     back = False
             if (buttonState == GPIO.LOW and lock):
