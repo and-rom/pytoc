@@ -237,30 +237,31 @@ class TearOffCalendarSheet:
             Draw weather forecast
         '''
 
-        y = 270
-        #draw[0].rectangle((38, y, 262, y+83), outline = 0)
+        if cal_data['forecast']:
+            y = 270
+            #draw[0].rectangle((38, y, 262, y+83), outline = 0)
 
-        #draw[0].line((94, y, 94, y+83), fill = 0)
-        #draw[0].line((150, y, 150, y+83), fill = 0)
-        #draw[0].line((206, y, 206, y+83), fill = 0)
+            #draw[0].line((94, y, 94, y+83), fill = 0)
+            #draw[0].line((150, y, 150, y+83), fill = 0)
+            #draw[0].line((206, y, 206, y+83), fill = 0)
 
-        #draw[0].line((38, y+20, 262, y+20), fill = 0)
-        #draw[0].line((38, y+63, 262, y+63), fill = 0)
+            #draw[0].line((38, y+20, 262, y+20), fill = 0)
+            #draw[0].line((38, y+63, 262, y+63), fill = 0)
 
-        forecast_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 18)
-        pos = 0
-        for part in cal_data['forecast']['order']:
-            day_part = self.DAY_PARTS[part]
-            day_part_w, day_part_h = draw[0].textsize(day_part, font=forecast_font)
-            draw[0].text((66-day_part_w/2+pos, y-1), day_part, font=forecast_font, fill='black')
-            temp = cal_data['forecast']['parts'][part]['temp']
-            temp_w, temp_h = draw[0].textsize(temp, font=forecast_font)
-            draw[0].text((66-temp_w/2+pos, y+63), temp, font=forecast_font, fill='black')
+            forecast_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 18)
+            pos = 0
+            for part in cal_data['forecast']['order']:
+                day_part = self.DAY_PARTS[part]
+                day_part_w, day_part_h = draw[0].textsize(day_part, font=forecast_font)
+                draw[0].text((66-day_part_w/2+pos, y-1), day_part, font=forecast_font, fill='black')
+                temp = cal_data['forecast']['parts'][part]['temp']
+                temp_w, temp_h = draw[0].textsize(temp, font=forecast_font)
+                draw[0].text((66-temp_w/2+pos, y+63), temp, font=forecast_font, fill='black')
 
-            icon = Image.open(os.path.join(self.icons_path, cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
-            pageBlack.paste(icon, (46+pos, y+22), icon)
+                icon = Image.open(os.path.join(self.icons_path, cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
+                pageBlack.paste(icon, (46+pos, y+22), icon)
 
-            pos += 56
+                pos += 56
 
         '''
             Draw back page source name
