@@ -58,7 +58,7 @@ class OWM:
         weather_data = result.json()
 
         until = datetime.now() + timedelta(hours=23)
-        
+
         summary = {
             'order' : [],
             'parts': {
@@ -66,7 +66,7 @@ class OWM:
                 'm': {'temp':[], 'cast':[], 'description':[], 'code':[], 'icon':[]},
                 'd': {'temp':[], 'cast':[], 'description':[], 'code':[], 'icon':[]},
                 'e': {'temp':[], 'cast':[], 'description':[], 'code':[], 'icon':[]}}}
-        
+
         for item in weather_data.get('hourly'):
             date = datetime.fromtimestamp(item['dt'])
             if date <= until:
