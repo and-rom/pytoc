@@ -97,6 +97,6 @@ class GM:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    gw = GW()
+    gw = GM()
     forecast = gw.get_forecast(('55.755864', '37.617698'))
     pprint(forecast)
