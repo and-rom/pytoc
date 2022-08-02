@@ -266,6 +266,14 @@ class TearOffCalendarSheet:
             pageBlack.paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
 
         '''
+            Draw location name
+        '''
+
+        location_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 12)
+        location_name_w, location_name_h = draw[0].textsize(cal_data['location_name'], font=location_name_font)
+        draw[0].text(((self.page_w-location_name_w)/2, 15), cal_data['location_name'], font=location_name_font)
+
+        '''
             Draw back page source name
         '''
 

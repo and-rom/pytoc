@@ -60,6 +60,7 @@ class TearOffCalendarData:
             cal_data['location'] = config['Common']['CurrentLocation']
             cal_data['latitude'] = config[cal_data['location']]['Latitude']
             cal_data['longitude'] = config[cal_data['location']]['Longitude']
+            cal_data['location_name'] = config[cal_data['location']]['Name']
             weather_service = config['Common']['WeatherService']
         else:
             cal_data['location'] = 'Moscow'
