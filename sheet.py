@@ -166,12 +166,15 @@ class TearOffCalendarSheet:
         #draw[0].rectangle((38, 35, 262, 80), outline = 0)
 
         if cal_data['holiday']:
-            if cal_data['holiday_type'] in ['int', 'un']:
-                holiday_title = '\U0001F310 ' + cal_data['holiday_title']
             j = 0 if not cal_data['holiday_dayoff'] or not screen else 1
             logger.debug('Red goes on black for holiday: ' + 'yes' if j == 0 else 'no')
+
+            if cal_data['holiday_type'] in ['int', 'un']:
+                holiday_title = '\U0001F310 ' + cal_data['holiday_title']
+            if cal_data['holiday_type'] in ['prof']:
+                holiday_title = '\U00002692 ' + cal_data['holiday_title']
             col = 25
-            holiday_title_arr = textwrap.wrap(cal_data['holiday_title'], width=col)
+            holiday_title_arr = textwrap.wrap(holiday_title, width=col)
             while len(holiday_title_arr) > 2:
                 col += 5
                 holiday_title_arr = textwrap.wrap(holiday_title, width=col)
