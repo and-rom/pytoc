@@ -103,6 +103,10 @@ class TearOffCalendarSheet:
 
         draw = (ImageDraw.Draw(pageBlack), ImageDraw.Draw(pageRed))
 
+        # Where to draw parts that may be red.
+        i = 0 if not cal_data['dayoff'] or not screen else 1
+        logger.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
+
         '''
             Draw corners
         '''
@@ -118,11 +122,6 @@ class TearOffCalendarSheet:
 
         corner = corner.rotate(90)
         pageBlack.paste(corner, (230, 330), corner)
-
-        # Where to draw parts that may be red.
-        i = 0 if not cal_data['dayoff'] or not screen else 1
-        logger.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
-
 
         '''
             Draw day
