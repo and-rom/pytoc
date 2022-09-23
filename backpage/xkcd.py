@@ -28,7 +28,7 @@ class XKCD():
         while True:
             if attempt > 5:
                 raise SystemError('Not found fitting item')
-            response = self.session.get('https://xkcd.ru/random')
+            response = self.session.get('https://xkcd.ru/random/')
 
             tree = html.fromstring(response.content)
 
@@ -88,7 +88,7 @@ class XKCD():
             texts, text_font_sizes = [], []
             for lines in range(2, 5):
                 logger.debug('lines {}'.format(lines))
-                col = len(text)/lines
+                col = len(text)//lines
                 text_arr = textwrap.wrap(text, width=col)
                 while len(text_arr) > lines:
                     logger.debug('wrapping...')
