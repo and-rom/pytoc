@@ -21,6 +21,7 @@ parser._optionals.title = 'Options'
 args = parser.parse_args()
 
 logging.basicConfig(level=getattr(logging, args.log_level), format='%(levelname)s - %(name)s - %(message)s')
+logger = logging.getLogger("cal")
 
 sheet = TearOffCalendarSheet(args.image)
 if not args.back:
@@ -30,7 +31,10 @@ if not args.back:
 
         sheet.backpage_name = backsheet.name
         sheet.draw()
-        backsheet.draw()
+        try:
+            backsheet.draw()
+        except SystemError as e:
+            logger.error(e)
         sheet.display_front()
     else:
         sheet.display_front()
