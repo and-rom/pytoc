@@ -48,7 +48,7 @@ class GM:
             'days': 2,
             'lang': 'ru'}
         try:
-            result = requests.get('https://api.gismeteo.net/v2/weather/forecast', headers=headers, params=payload, timeout=(10,30))
+            result = requests.get('https://api.gismeteo.net/v2/weather/forecast/', headers=headers, params=payload, timeout=(10,30))
         except Exception as e:
             logger.error('Error getting weather forecast data')
             return {}
@@ -56,6 +56,10 @@ class GM:
             logger.info('Weather forecast data received successfully')
 
         weather_data = result.json()
+
+        if  not weather_data['response']:
+            logger.debug(weather_data)
+            return {}
 
         now = datetime.now()
         hour = int(now.strftime('%-H'))
