@@ -53,13 +53,14 @@ class GM:
             logger.error('Error getting weather forecast data')
             return {}
         else:
-            logger.info('Weather forecast data received successfully')
+            weather_data = result.json()
 
-        weather_data = result.json()
-
-        if  not weather_data['response']:
-            logger.debug(weather_data)
-            return {}
+            if  not weather_data['response']:
+                logger.error('Error getting weather forecast data')
+                logger.debug(weather_data)
+                return {}
+            else:
+                logger.info('Weather forecast data received successfully')
 
         now = datetime.now()
         hour = int(now.strftime('%-H'))
