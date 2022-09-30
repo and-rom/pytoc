@@ -171,8 +171,10 @@ class TearOffCalendarSheet:
 
             if cal_data['holiday_type'] in ['int', 'un']:
                 holiday_title = '\U0001F310 ' + cal_data['holiday_title']
-            if cal_data['holiday_type'] in ['prof']:
+            elif cal_data['holiday_type'] in ['prof']:
                 holiday_title = '\U00002692 ' + cal_data['holiday_title']
+            else
+                holiday_title = cal_data['holiday_title']
             col = 25
             holiday_title_arr = textwrap.wrap(holiday_title, width=col)
             while len(holiday_title_arr) > 2:
