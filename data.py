@@ -72,14 +72,16 @@ class TearOffCalendarData:
         btoday = today.replace(hour=0, minute=0, second=0, microsecond=0)
         etoday = today.replace(hour=23, minute=59, second=59, microsecond=999)
 
-        cd = int(today.strftime('%-d')), int(today.strftime('%-m'))
+        t = today
+        cd = int(t.strftime('%-d')), int(t.strftime('%-m'))
         cal_data['day'] = cd[0]
         cal_data['month'] = cd[1]
-        cal_data['weekday'] = int(today.strftime('%w'))
+        cal_data['weekday'] = int(t.strftime('%w'))
         cal_data['dayoff'] = False
         cal_data['holiday'] = False
+        year = t.strftime('%Y')
 
-        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'misc', 'holidays.json'), 'rb') as f:
+        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'misc', 'holidays_' + year + '.json'), 'rb') as f:
             data = json.load(f)
             if cd[0] in data["daysOff"][cd[1]-1]:
                 cal_data['dayoff'] = True

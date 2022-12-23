@@ -18,7 +18,7 @@ with open(os.path.join(p, 'misc', 'cal.csv'), 'r') as csvf:
         holidays[int(row['month'])-1].insert(int(row['day'])-1, {'title': row['title'], 'dayoff': row['dayoff'] == 'true', 'type': row['type']})
     csvf.close()
 
-with open(os.path.join(p, 'data', 'cal.json'), 'r+') as jsonf:
+with open(os.path.join(p, 'misc', 'cal.json'), 'r+') as jsonf:
     json_data = json.load(jsonf)
     json_data['holidays'] = holidays
     jsonf.seek(0)
