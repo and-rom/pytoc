@@ -4,13 +4,12 @@
 import argparse
 import logging
 import random
-from sheet import TearOffCalendarSheet
 from backpage.xkcd import XKCD
 from backpage.bashorg import BashOrg
 
 parser = argparse.ArgumentParser(prog='pytoc', description='Python Tear-Off Calendar', usage='%(prog)s [options]')
 
-parser.add_argument('-t', '--template', dest='template', help='name of calendar sheet template')
+parser.add_argument('-t', '--template', dest='template', help='name of calendar sheet template', default='1')
 parser.add_argument('-i', '--image', dest='image', help='path for images', default='.')
 parser.add_argument('-b', '--back', dest='back', help='display back image on screen', action='store_true')
 parser.add_argument('-f', '--front', dest='front', help='display front image on screen', action='store_true')
@@ -23,7 +22,7 @@ args = parser.parse_args()
 logging.basicConfig(level=getattr(logging, args.log_level), format='%(levelname)s - %(name)s - %(message)s')
 logger = logging.getLogger("cal")
 
-sheet = TearOffCalendarSheet(args.image)
+sheet = __import__('sheet_' + args.template, globals(), locals(), ['TearOffCalendarSheet']).TearOffCalendarSheet(args.image)
 if not args.back:
     if not args.front:
         backpages = [XKCD, BashOrg]
