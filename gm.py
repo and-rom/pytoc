@@ -70,10 +70,10 @@ class GM:
         summary = {
             'order' : [],
             'parts': {
-                'n': {'temp':[], 'cast':[], 'description':[], 'icon':[]},
-                'm': {'temp':[], 'cast':[], 'description':[], 'icon':[]},
-                'd': {'temp':[], 'cast':[], 'description':[], 'icon':[]},
-                'e': {'temp':[], 'cast':[], 'description':[], 'icon':[]}}}
+                'n': {'temp':[], 'humidity':[], 'pressure':[], 'wind_speed':[], 'wind_deg':[], 'cast':[], 'description':[], 'icon':[]},
+                'm': {'temp':[], 'humidity':[], 'pressure':[], 'wind_speed':[], 'wind_deg':[], 'cast':[], 'description':[], 'icon':[]},
+                'd': {'temp':[], 'humidity':[], 'pressure':[], 'wind_speed':[], 'wind_deg':[], 'cast':[], 'description':[], 'icon':[]},
+                'e': {'temp':[], 'humidity':[], 'pressure':[], 'wind_speed':[], 'wind_deg':[], 'cast':[], 'description':[], 'icon':[]}}}
 
         for item in weather_data['response']:
             date = datetime.fromtimestamp(item['date']['unix'])
@@ -82,6 +82,10 @@ class GM:
                 if day_part not in summary['order']:
                     summary['order'].append(day_part)
                 summary['parts'][day_part]['temp'].append(item['temperature']['air']['C'])    # +11
+                summary['parts'][day_part]['humidity'].append(item['humidity']['percent'])
+                summary['parts'][day_part]['pressure'].append(item['pressure']['mm_hg_atm'])
+                summary['parts'][day_part]['wind_speed'].append(item['wind']['speed']['m_s'])
+                summary['parts'][day_part]['wind_deg'].append(item['wind']['direction']['degree'])
                 summary['parts'][day_part]['cast'].append(item['cloudiness']['type'])         # Clouds
                 summary['parts'][day_part]['description'].append(item['description']['full']) # scattered clouds
                 summary['parts'][day_part]['icon'].append(item['icon'])                       # 03d
@@ -95,6 +99,8 @@ class GM:
                         summary['parts'][s_key][key] = '{}..{}'.format(self.__add_sign(min_t), self.__add_sign(max_t))
                     else:
                         summary['parts'][s_key][key] = self.__add_sign(round(self.__average(summary['parts'][s_key][key])))
+                elif key in ('humidity', 'pressure', 'wind_speed', 'wind_deg'):
+                    summary['parts'][s_key][key] = round(self.__average(summary['parts'][s_key][key]))
                 else:
                     summary['parts'][s_key][key] = self.__most_common(summary['parts'][s_key][key])
 

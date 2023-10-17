@@ -53,19 +53,18 @@ class OWM:
             logger.error('Error getting weather forecast data')
             return {}
         else:
+            weather_data = result.json()
             logger.info('Weather forecast data received successfully')
-
-        weather_data = result.json()
 
         until = datetime.now() + timedelta(hours=23)
 
         summary = {
             'order' : [],
             'parts': {
-                'n': {'temp':[], 'cast':[], 'description':[], 'code':[], 'icon':[]},
-                'm': {'temp':[], 'cast':[], 'description':[], 'code':[], 'icon':[]},
-                'd': {'temp':[], 'cast':[], 'description':[], 'code':[], 'icon':[]},
-                'e': {'temp':[], 'cast':[], 'description':[], 'code':[], 'icon':[]}}}
+                'n': {'temp':[], 'humidity':[], 'pressure':[], 'wind_speed':[], 'wind_deg':[], 'cast':[], 'description':[], 'code':[], 'icon':[]},
+                'm': {'temp':[], 'humidity':[], 'pressure':[], 'wind_speed':[], 'wind_deg':[], 'cast':[], 'description':[], 'code':[], 'icon':[]},
+                'd': {'temp':[], 'humidity':[], 'pressure':[], 'wind_speed':[], 'wind_deg':[], 'cast':[], 'description':[], 'code':[], 'icon':[]},
+                'e': {'temp':[], 'humidity':[], 'pressure':[], 'wind_speed':[], 'wind_deg':[], 'cast':[], 'description':[], 'code':[], 'icon':[]}}}
 
         for item in weather_data.get('hourly'):
             date = datetime.fromtimestamp(item['dt'])
@@ -74,6 +73,10 @@ class OWM:
                 if day_part not in summary['order']:
                     summary['order'].append(day_part)
                 summary['parts'][day_part]['temp'].append(item['temp'])
+                summary['parts'][day_part]['humidity'].append(item['humidity'])
+                summary['parts'][day_part]['pressure'].append(item['pressure'])
+                summary['parts'][day_part]['wind_speed'].append(item['wind_speed'])
+                summary['parts'][day_part]['wind_deg'].append(item['wind_deg'])
                 summary['parts'][day_part]['cast'].append(item['weather'][0]['main'])
                 summary['parts'][day_part]['description'].append(item['weather'][0]['description'])
                 summary['parts'][day_part]['code'].append(item['weather'][0]['id'])
@@ -90,6 +93,10 @@ class OWM:
                         summary['parts'][s_key][key] = '{}..{}'.format(self.__add_sign(min_t), self.__add_sign(max_t))
                     else:
                         summary['parts'][s_key][key] = self.__add_sign(round(self.__average(summary['parts'][s_key][key])))
+                elif key == 'pressure':
+                    summary['parts'][s_key][key] = round(self.__average(summary['parts'][s_key][key])/1.333)
+                elif key in ('humidity' 'wind_speed', 'wind_deg'):
+                    summary['parts'][s_key][key] = round(self.__average(summary['parts'][s_key][key]))
                 else:
                     summary['parts'][s_key][key] = self.__most_common(summary['parts'][s_key][key])
 
