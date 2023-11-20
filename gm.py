@@ -96,9 +96,9 @@ class GM:
                     min_t = round(min(summary['parts'][s_key][key]))
                     max_t = round(max(summary['parts'][s_key][key]))
                     if max_t - min_t > 1:
-                        summary['parts'][s_key][key] = '{}..{}'.format(self.__add_sign(min_t), self.__add_sign(max_t))
+                        summary['parts'][s_key][key] = '{}°..{}°'.format(self.__add_sign(min_t), self.__add_sign(max_t))
                     else:
-                        summary['parts'][s_key][key] = self.__add_sign(round(self.__average(summary['parts'][s_key][key])))
+                        summary['parts'][s_key][key] = '{}°'.format(self.__add_sign(round(self.__average(summary['parts'][s_key][key]))))
                 elif key in ('humidity', 'pressure', 'wind_speed', 'wind_deg'):
                     summary['parts'][s_key][key] = round(self.__average(summary['parts'][s_key][key]))
                 else:
