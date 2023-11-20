@@ -66,6 +66,7 @@ class TearOffCalendarData:
             cal_data['location'] = 'Moscow'
             cal_data['latitude'] = 55.755864
             cal_data['longitude'] = 37.617698
+            cal_data['location_name'] = 'Москва'
             weather_service = None
 
         today = datetime.today()
