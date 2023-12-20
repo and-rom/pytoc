@@ -4,10 +4,9 @@
 import os
 import logging
 from data import TearOffCalendarData
-from string import Template
+from sheet_base import TearOffCalendarBaseSheet, DeltaTemplate
 import textwrap
 from PIL import Image, ImageDraw, ImageFont
-import time
 screen = True
 try:
     from waveshare_epd import epd4in2bc, epd4in2
@@ -16,83 +15,9 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
-class DeltaTemplate(Template):
-    delimiter = "%"
-
-class TearOffCalendarSheet:
-    MONTHS = ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь']
-    WEEKDAYS = ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота']
-    CONSTELLATIONS = {
-        'Ari': 'Овен',
-        'Tau': 'Телец',
-        'Gem': 'Близнецы',
-        'Cnc': 'Рак',
-        'Leo': 'Лев',
-        'Vir': 'Дева',
-        'Lib': 'Весы',
-        'Sco': 'Скорпион',
-        'Sgr': 'Стрелец',
-        'Cap': 'Козерог',
-        'Aqr': 'Водолей',
-        'Psc': 'Рыбы',
-        'Aur': 'Возничий',
-        'Oph': 'Змееносец',
-        'Cet': 'Кит',
-        'Ori': 'Орион',
-        'Sex': 'Секстант'}
-    MOON_PHASES = [
-        ['0', 'Ново-\nлуние'],
-        ['D', 'Молод.\nлуна'],
-        ['G', 'Первая\nчетв.'],
-        ['J', 'Растущая\nлуна'],
-        ['@', 'Полно-\nлуние'],
-        ['Q', 'Убыв.\nлуна'],
-        ['T', 'Послед.\nчетв.'],
-        ['W', 'Старая\nлуна']]
-    DAY_PARTS = {
-        'n': 'Ночь',
-        'm': 'Утро',
-        'd': 'День',
-        'e': 'Вечер'}
-
-    @staticmethod
-    def __strfdelta(tdelta, fmt):
-        d = {"D": tdelta.days}
-        d["H"], rem = divmod(tdelta.seconds, 3600)
-        d["M"], d["S"] = divmod(rem, 60)
-        t = DeltaTemplate(fmt)
-        return t.substitute(**d)
-
+class TearOffCalendarSheet(TearOffCalendarBaseSheet):
     def __init__(self, image_path = ''):
-        self.__backpage_name = ''
-        p = os.path.dirname(os.path.realpath(__file__))
-        self.clip_path = os.path.join(p, 'clip')
-        self.fonts_path = os.path.join(p, 'fonts')
-        self.icons_path = os.path.join(p, 'icons')
-        self.image_path = image_path
-
-        if screen:
-            self.epd = epd4in2bc.EPD()
-            self.epd_b = epd4in2.EPD()
-            self.page_w = self.epd.height
-            self.page_h = self.epd.width
-        else:
-            if self.image_path == '':
-                logger.error('There is no screen to draw on and image path not specified')
-                return
-            self.page_w = 300
-            self.page_h = 400
-
-    @property
-    def backpage_name(self):
-        return self.__backpage_name
-
-    @backpage_name.setter
-    def backpage_name(self, s):
-        if s != '':
-            self.__backpage_name = s
-        else:
-            raise ValueError
+        super().__init__(image_path)
 
     def draw(self):
         cal = TearOffCalendarData()
@@ -214,7 +139,7 @@ class TearOffCalendarSheet:
         s = 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}'.format(
             cal_data['sunrise'].strftime('%H:%M'),
             cal_data['sunset'].strftime('%H:%M'),
-            self.__strfdelta(cal_data['daylength'], '%H:%M'))
+            super().strfdelta(cal_data['daylength'], '%H:%M'))
         #print(s)
 
         m = 'Заход\n{}\nВосход\n{}\n{}\n{}-й\nдень'.format(
@@ -281,10 +206,10 @@ class TearOffCalendarSheet:
             Draw back page source name
         '''
 
-        if self.__backpage_name != '':
+        if self.backpage_name != '':
             backpage_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 12)
-            backpage_name_w, backpage_name_h = draw[0].textsize(self.__backpage_name, font=backpage_name_font)
-            draw[0].text(((self.page_w-backpage_name_w)/2, 375), self.__backpage_name, font=backpage_name_font)
+            backpage_name_w, backpage_name_h = draw[0].textsize(self.backpage_name, font=backpage_name_font)
+            draw[0].text(((self.page_w-backpage_name_w)/2, 375), self.backpage_name, font=backpage_name_font)
 
         '''
             Send images to screen or save to file
@@ -296,45 +221,6 @@ class TearOffCalendarSheet:
         else:
             pageBlack.save(os.path.join(self.image_path, 'sheet.png'))
             logger.info('There is no EPD. Image saved to file.')
-
-    def display_front(self):
-        if screen:
-            try:
-                pageBlack = Image.open(os.path.join(self.image_path, 'sheet_b.png'))
-                pageRed = Image.open(os.path.join(self.image_path, 'sheet_r.png'))
-
-                self.epd.init()
-                self.epd.Clear()
-
-                self.epd.display(self.epd.getbuffer(pageBlack), self.epd.getbuffer(pageRed))
-
-                time.sleep(2)
-                self.epd.sleep()
-            except IOError as e:
-                print(e)
-            else:
-                logger.info('EPD rendering completed successfully')
-        else:
-            logger.info('There is no EPD. You may open saved image from file.')
-
-    def display_back(self):
-        if screen:
-            try:
-                page = Image.open(os.path.join(self.image_path, 'backsheet.png'))
-
-                self.epd_b.Init_4Gray()
-                self.epd_b.Clear()
-
-                self.epd_b.display_4Gray(self.epd_b.getbuffer_4Gray(page))
-
-                time.sleep(2)
-                self.epd.sleep()
-            except IOError as e:
-                print(e)
-            else:
-                logger.info('EPD rendering completed successfully')
-        else:
-            logger.info('There is no EPD. You may open saved image from file.')
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)

@@ -4,11 +4,9 @@
 import os
 import logging
 from data import TearOffCalendarData
-from sheet_base import TearOffCalendarBaseSheet
-from string import Template
+from sheet_base import TearOffCalendarBaseSheet, DeltaTemplate
 import textwrap
 from PIL import Image, ImageDraw, ImageFont
-import time
 screen = True
 try:
     from waveshare_epd import epd4in2bc, epd4in2
@@ -16,9 +14,6 @@ except ImportError:
     screen = False
 
 logger = logging.getLogger(__name__)
-
-class DeltaTemplate(Template):
-    delimiter = "%"
 
 class TearOffCalendarSheet(TearOffCalendarBaseSheet):
     def __init__(self, image_path = ''):

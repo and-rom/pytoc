@@ -5,8 +5,7 @@ import os
 import logging
 from data import TearOffCalendarData
 from string import Template
-import textwrap
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 import time
 screen = True
 try:
@@ -132,9 +131,3 @@ class TearOffCalendarBaseSheet:
                 logger.info('EPD rendering completed successfully')
         else:
             logger.info('There is no EPD. You may open saved image from file.')
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG)
-    sheet = TearOffCalendarSheet(os.path.dirname(os.path.realpath(__file__)))
-    sheet.backpage_name = 'Back Sheet'
-    sheet.draw()
