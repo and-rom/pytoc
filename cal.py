@@ -4,6 +4,7 @@
 import argparse
 import logging
 import random
+from backpage.dummy import Dummy
 from backpage.xkcd import XKCD
 from backpage.bashorg import BashOrg
 
@@ -25,8 +26,11 @@ logger = logging.getLogger("cal")
 sheet = __import__('sheet_' + args.template, globals(), locals(), ['TearOffCalendarSheet']).TearOffCalendarSheet(args.image)
 if not args.back:
     if not args.front:
-        backpages = [XKCD, BashOrg]
-        backsheet = random.choice(backpages)(args.image)
+        if "7in5" in args.template:
+            backpages = [Dummy]
+        else:
+            backpages = [XKCD, Dummy]
+        backsheet = random.choice(backpages)(w = sheet.page_w, h = sheet.page_h, image_path = args.image)
 
         sheet.backpage_name = backsheet.name
         sheet.draw()
