@@ -113,6 +113,8 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
                 holiday_title = '\U0001F310 ' + cal_data['holiday_title']
             if cal_data['holiday_type'] in ['prof']:
                 holiday_title = '\U00002692 ' + cal_data['holiday_title']
+            else:
+                holiday_title = cal_data['holiday_title']
             col = 25
             holiday_title_arr = textwrap.wrap(holiday_title, width=col)
             while len(holiday_title_arr) > 2:
@@ -173,7 +175,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         y=360
         #draw[0].rectangle((...), outline = 0)
-        
+
         c = 'Луна в созвездии {}'.format(self.CONSTELLATIONS[cal_data['constellation']])
         #print(c)
 
