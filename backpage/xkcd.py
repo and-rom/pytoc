@@ -12,12 +12,12 @@ logger = logging.getLogger(__name__)
 
 class XKCD():
 
-    def __init__(self, image_path = ''):
+    def __init__(self, w = 300, h = 400, image_path = ''):
         self.__name = 'xkcd.ru'
         p = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
         self.fonts_path = os.path.join(p, 'fonts')
         self.image_path = image_path
-        self.session = requests.session()        
+        self.session = requests.session()
 
     @property
     def name(self):

@@ -82,7 +82,7 @@ class BashOrg():
         logger.debug('now wrapped text fits {} {}'.format(quote_w, quote_h))
         logger.debug('font size {}'.format(font_size))
         draw.text(((page_w-quote_w)/2, (page_h-quote_h)/2), quote, font=font, fill='black')
-        
+
         page.save(os.path.join(self.image_path, 'backsheet.png'))
         logger.info('Back page image saved to file.')
 
