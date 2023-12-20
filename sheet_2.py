@@ -59,16 +59,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         day = str(cal_data['day'])
         #print(day)
 
-        #day_font_ttf = 'quigleywiggly.ttf'
-        #day_font_ttf = 'hondac.ttf'
-        #day_font_ttf = 'electron.ttf'
-        #day_font_ttf = 'electron-cyrillic.ttf'
-        #day_font_ttf = 'minotuat_phatte.ttf'
-        #day_font_ttf = 'Serp And Molot.ttf.otf'
-        #day_font_ttf = 'Topaz.ttf'
-        #day_font_ttf = 'Pilotka.ttf'
         day_font_ttf = 'Molot.otf'
-        #day_font_ttf = 'data_trash.otf'
         day_font = ImageFont.truetype(os.path.join(self.fonts_path, day_font_ttf), 120)
         day_w, day_h = draw[i].textsize(day, font=day_font)
         draw[i].text(((self.page_w-day_w)/2, y), day, font=day_font)
@@ -111,7 +102,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
             if cal_data['holiday_type'] in ['int', 'un']:
                 holiday_title = '\U0001F310 ' + cal_data['holiday_title']
-            if cal_data['holiday_type'] in ['prof']:
+            elif cal_data['holiday_type'] in ['prof']:
                 holiday_title = '\U00002692 ' + cal_data['holiday_title']
             else:
                 holiday_title = cal_data['holiday_title']
@@ -179,6 +170,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         c = 'Луна в созвездии {}'.format(self.CONSTELLATIONS[cal_data['constellation']])
         #print(c)
 
+        #draw[0].rectangle((...), outline = 0)
         c_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Italic.ttf'), 16)
         c_w, c_h = draw[0].textsize(c, font=c_font)
         draw[0].text(((self.page_w-c_w)/2, y), c, font=c_font)
@@ -189,9 +181,11 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         y = 15
         #draw[0].rectangle((38, y, 262, y+83), outline = 0)
+
         #draw[0].line((94, y, 94, y+83), fill = 0)
         #draw[0].line((150, y, 150, y+83), fill = 0)
         #draw[0].line((206, y, 206, y+83), fill = 0)
+
         #draw[0].line((38, y+20, 262, y+20), fill = 0)
         #draw[0].line((38, y+63, 262, y+63), fill = 0)
 

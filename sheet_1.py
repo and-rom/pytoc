@@ -57,7 +57,8 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #print(day)
 
         #draw[0].rectangle((80, 120, 220, 210), outline = 0)
-        day_font = ImageFont.truetype(os.path.join(self.fonts_path, 'AbrilFatface-Regular.ttf'), 125)
+        day_font_ttf = 'AbrilFatface-Regular.ttf'
+        day_font = ImageFont.truetype(os.path.join(self.fonts_path, day_font_ttf), 125)
         day_w, day_h = draw[i].textsize(day, font=day_font)
         draw[i].text(((self.page_w-day_w)/2, 77), day, font=day_font)
 
@@ -155,13 +156,20 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         m_w, m_h = draw[0].textsize(m, font=sm_font)
         draw[0].text((self.page_w-10-m_w, 110), m, font=sm_font, align='right')
 
+        '''
+            Draw constellation
+        '''
+
+        y=245
+        #draw[0].rectangle((...), outline = 0)
+
         c = 'Луна в созвездии {}'.format(self.CONSTELLATIONS[cal_data['constellation']])
         #print(c)
 
         #draw[0].rectangle((...), outline = 0)
         c_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Italic.ttf'), 16)
         c_w, c_h = draw[0].textsize(c, font=c_font)
-        draw[0].text(((self.page_w-c_w)/2, 245), c, font=c_font)
+        draw[0].text(((self.page_w-c_w)/2, y), c, font=c_font)
 
         '''
             Draw weather forecast
@@ -176,6 +184,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         #draw[0].line((38, y+20, 262, y+20), fill = 0)
         #draw[0].line((38, y+63, 262, y+63), fill = 0)
+
         if cal_data['forecast']:
             forecast_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 18)
             pos = 0
