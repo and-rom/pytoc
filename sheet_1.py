@@ -19,9 +19,10 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
     def __init__(self, image_path = ''):
         super().__init__(image_path)
 
-    def draw(self):
-        cal = TearOffCalendarData()
-        cal_data = cal.get_data()
+    def draw(self, cal_data = None):
+        if cal_data is None:
+            cal = TearOffCalendarData()
+            cal_data = cal.get_data()
 
         pageBlack = Image.new('1', (self.page_w, self.page_h), 255)
         pageRed = Image.new('1', (self.page_w, self.page_h), 255)
@@ -223,5 +224,24 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
             logger.info('There is no EPD. Image saved to file.')
 
 if __name__ == "__main__":
+    import sys
+    import json
+    from datetime import datetime, timedelta
     logging.basicConfig(level=logging.DEBUG)
     sheet = TearOffCalendarSheet(os.path.dirname(os.path.realpath(__file__)))
+    sheet.backpage_name = 'Back Sheet'
+    if len(sys.argv)>1:
+        try:
+            f = open(sys.argv[1], "r")
+        except:
+            logger.error("Can't read supplied filename.")
+        cal_data = json.loads(f.read())
+        cal_data['moonrise'] = datetime.strptime(cal_data['moonrise'], '%Y-%m-%d %H:%M:%S.%f')
+        cal_data['moonset'] = datetime.strptime(cal_data['moonset'], '%Y-%m-%d %H:%M:%S.%f')
+        cal_data['sunrise'] = datetime.strptime(cal_data['sunrise'], '%Y-%m-%d %H:%M:%S.%f')
+        cal_data['sunset'] = datetime.strptime(cal_data['sunset'], '%Y-%m-%d %H:%M:%S.%f')
+        t = datetime.strptime(cal_data['daylength'], '%H:%M:%S.%f')
+        cal_data['daylength'] = timedelta(hours=t.hour, minutes=t.minute, seconds=t.second, microseconds=t.microsecond)
+        sheet.draw(cal_data)
+    else:
+        sheet.draw()

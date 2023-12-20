@@ -10,7 +10,7 @@ import locale
 import ephem
 from owm import OWM
 from gm import GM
-from pprint import pprint
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -133,4 +133,4 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     cal = TearOffCalendarData()
     cal_data = cal.get_data()
-    pprint(cal_data)
+    print(json.dumps(cal_data, indent=4, sort_keys=True, default=str, ensure_ascii=False))
