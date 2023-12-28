@@ -128,15 +128,15 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].ellipse((10, 90, 25, 105), fill = 'white', outline='black')
         #draw[0].ellipse((15, 95, 20, 100), fill = 'black')
 
-        sun_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 22)
-        draw[0].text((9, 86), '\U00002609', font=sun_font, fill='black')
+        icons_font = ImageFont.truetype(os.path.join(self.fonts_path, 'icons.ttf'), 22)
+        draw[0].text((9, 86), '\U00002609', font=icons_font, fill='black')
 
         #draw[0].rectangle((274, 89, 291, 106), outline = 0)
         #draw[0].ellipse((275, 90, 290, 105), fill = 'black')
         #draw[0].ellipse((271, 90, 286, 105), fill = 'white')
 
-        moon_font = ImageFont.truetype(os.path.join(self.fonts_path, 'moon_phases.ttf'), 18)
-        draw[0].text((274, 89), self.MOON_PHASES[cal_data['moon_phase_id']][0], font=moon_font, fill='black')
+        icons_font = ImageFont.truetype(os.path.join(self.fonts_path, 'icons.ttf'), 22)
+        draw[0].text((274, 89), self.MOON_PHASES[cal_data['moon_phase_id']][0], font=icons_font, fill='black')
 
         s = 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}'.format(
             cal_data['sunrise'].strftime('%H:%M'),
@@ -195,9 +195,15 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
                 temp = cal_data['forecast']['parts'][part]['temp']
                 temp_w, temp_h = draw[0].textsize(temp, font=forecast_font)
                 draw[0].text((66-temp_w/2+pos, y+63), temp, font=forecast_font, fill='black')
-
-                icon = Image.open(os.path.join(self.icons_path, cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
-                pageBlack.paste(icon, (46+pos, y+22), icon)
+                ICNS = {
+                '01d': '\U000F0000',
+                '01n': '\U000F0001',
+                '02d': '\U000F0002',
+                '02n': '\U000F0003',
+                  'd': '\U000F0010',
+                }
+                icons_font = ImageFont.truetype(os.path.join(self.fonts_path, 'icons.ttf'), 40)
+                draw[0].text((46+pos, y+22), ICNS[cal_data['forecast']['parts'][part]['icon']], font=icons_font, fill='black')
 
                 pos += 56
         else:
