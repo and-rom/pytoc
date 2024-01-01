@@ -29,7 +29,8 @@ class GM:
 
     @staticmethod
     def __average(lst):
-        return sum(lst) / len(lst)
+        lst=[el for el in lst if el is not None]
+        return sum(lst) / len(lst) if len(lst) != 0 else None
 
     @staticmethod
     def __add_sign(num):
@@ -100,7 +101,8 @@ class GM:
                     else:
                         summary['parts'][s_key][key] = '{}°'.format(self.__add_sign(round(self.__average(summary['parts'][s_key][key]))))
                 elif key in ('humidity', 'pressure', 'wind_speed', 'wind_deg'):
-                    summary['parts'][s_key][key] = round(self.__average(summary['parts'][s_key][key]))
+                    tmp = self.__average(summary['parts'][s_key][key])
+                    summary['parts'][s_key][key] = round(tmp) if tmp is not None else tmp
                 else:
                     summary['parts'][s_key][key] = self.__most_common(summary['parts'][s_key][key])
 
