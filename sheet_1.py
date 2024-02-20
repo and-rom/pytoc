@@ -27,33 +27,35 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         pageBlack = Image.new('1', (self.page_w, self.page_h), 255)
         pageRed = Image.new('1', (self.page_w, self.page_h), 255)
 
+        pages = (pageBlack, pageRed)
         draw = (ImageDraw.Draw(pageBlack), ImageDraw.Draw(pageRed))
 
         # Where to draw parts that may be red.
         i = 0 if not cal_data['dayoff'] or not screen else 1
+        j = 0 if not cal_data['holiday_dayoff'] or not screen else 1
         logger.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
 
         wifi = Image.open(os.path.join(self.clip_path, 'wifi_' + str(cal_data['wifi_qlt']) + '.png'), mode='r')
-        pageBlack.paste(wifi, (1, 1), wifi)
+        pages[0].paste(wifi, (1, 2), wifi)
 
         battery = Image.open(os.path.join(self.clip_path, 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
-        pageBlack.paste(battery, (self.page_w-21, 1), battery)
+        pages[0].paste(battery, (self.page_w-21, 2), battery)
 
         '''
             Draw corners
         '''
 
         corner = Image.open(os.path.join(self.clip_path, 'corner.png'), mode='r')
-        pageBlack.paste(corner, (20, 20), corner)
+        pages[j].paste(corner, (20, 20), corner)
 
         corner = corner.rotate(270)
-        pageBlack.paste(corner, (230, 20), corner)
+        pages[j].paste(corner, (230, 20), corner)
 
         corner = corner.rotate(180)
-        pageBlack.paste(corner, (20, 330), corner)
+        pages[j].paste(corner, (20, 330), corner)
 
         corner = corner.rotate(90)
-        pageBlack.paste(corner, (230, 330), corner)
+        pages[j].paste(corner, (230, 330), corner)
 
         '''
             Draw day
@@ -78,7 +80,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].rectangle((60, 85, 240, 110), outline = 0)
         month_font = ImageFont.truetype(os.path.join(self.fonts_path, 'PlayfairDisplay-ExtraBold.ttf'), 32)
         month_w, month_h = draw[0].textsize(month, font=month_font)
-        draw[0].text(((self.page_w-month_w)/2, 75), month, font=month_font)
+        draw[j].text(((self.page_w-month_w)/2, 75), month, font=month_font)
 
         '''
             Draw weekday
@@ -99,7 +101,6 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].rectangle((38, 35, 262, 80), outline = 0)
 
         if cal_data['holiday']:
-            j = 0 if not cal_data['holiday_dayoff'] or not screen else 1
             logger.debug('Red goes on black for holiday: ' + 'yes' if j == 0 else 'no')
 
             if cal_data['holiday_type'] in ['int', 'un']:
@@ -203,12 +204,12 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
                 draw[0].text((66-temp_w/2+pos, y+63), temp, font=forecast_font, fill='black')
 
                 icon = Image.open(os.path.join(self.icons_path, cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
-                pageBlack.paste(icon, (46+pos, y+22), icon)
+                pages[0].paste(icon, (46+pos, y+22), icon)
 
                 pos += 56
         else:
             no_conn = Image.open(os.path.join(self.clip_path, 'no_connection.png'), mode='r')
-            pageBlack.paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
+            pages[0].paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
 
         '''
             Draw location name
@@ -231,11 +232,11 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
             Send images to screen or save to file
         '''
         if screen:
-            pageBlack.save(os.path.join(self.image_path, 'sheet_b.png'))
-            pageRed.save(os.path.join(self.image_path, 'sheet_r.png'))
+            pages[0].save(os.path.join(self.image_path, 'sheet_b.png'))
+            pages[1].save(os.path.join(self.image_path, 'sheet_r.png'))
             logger.info('Images for EPD saved to files.')
         else:
-            pageBlack.save(os.path.join(self.image_path, 'sheet.png'))
+            pages[0].save(os.path.join(self.image_path, 'sheet.png'))
             logger.info('There is no EPD. Image saved to file.')
 
 if __name__ == "__main__":
