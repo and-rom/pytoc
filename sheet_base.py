@@ -3,7 +3,6 @@
 
 import os
 import logging
-from data import TearOffCalendarData
 from string import Template
 from PIL import Image
 import time
