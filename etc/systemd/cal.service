@@ -5,6 +5,7 @@ After=time-sync.target
 Wants=time-sync.target
 
 [Service]
+Type=oneshot
 ExecStart=/usr/bin/python %h/pytoc/cal.py --log-level INFO --image /dev/shm
 
 [Install]
