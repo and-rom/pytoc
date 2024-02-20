@@ -36,7 +36,7 @@ class Dummy():
             logger.error(error)
             return
 
-        page = Image.new('RGBA', (self.w, self.h), "white")
+        page = Image.new('RGB', (self.w, self.h), "white")
         draw = ImageDraw.Draw(page)
 
         draw.rectangle((5, 5, self.w-5, self.h-5), outline = 'black', fill='white')

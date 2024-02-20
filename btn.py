@@ -6,7 +6,7 @@ import signal
 import argparse
 import logging
 import RPi.GPIO as GPIO
-from sheet import TearOffCalendarSheet
+from sheet_base import TearOffCalendarBaseSheet
 from time import sleep
 
 def quit(signalNumber = None, frame = None):
@@ -41,7 +41,7 @@ def main():
 
         GPIO.setup(buttonPin, GPIO.IN,pull_up_down=GPIO.PUD_UP)
 
-        sheet = TearOffCalendarSheet(args.image)
+        sheet = TearOffCalendarBaseSheet(args.image)
 
         lock = False
         back = False
