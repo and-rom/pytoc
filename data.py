@@ -132,9 +132,9 @@ class TearOffCalendarData:
 
         cal_data['wifi_qlt'] = round(map_to_range(wifi.get_quality(), 0, 100, 0, 4))
 
-        ina219 = ina219.INA219(addr=0x43)
-        cal_data['battery'] = round(ina219.getPercent())//10*10
-        cal_data['battery_charging'] = ina219.getCharging()
+        ups = ina219.INA219(addr=0x43)
+        cal_data['battery'] = round(ups.getPercent())//10*10
+        cal_data['battery_charging'] = ups.getCharging()
         if cal_data['battery'] < 20:
             cal_data['battery'] = 20
         elif cal_data['battery'] == 40:
