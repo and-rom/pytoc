@@ -36,6 +36,9 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         wifi = Image.open(os.path.join(self.clip_path, 'wifi_' + str(cal_data['wifi_qlt']) + '.png'), mode='r')
         pageBlack.paste(signal, (1, 1), signal)
 
+        battery = Image.open(os.path.join(self.clip_path, 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
+        pageBlack.paste(battery, (self.page_w-21, 1), battery)
+
         '''
             Draw corners
         '''

@@ -11,6 +11,7 @@ import ephem
 from owm import OWM
 from gm import GM
 import wifi
+import ina219
 import json
 
 logger = logging.getLogger(__name__)
@@ -130,6 +131,18 @@ class TearOffCalendarData:
             cal_data['forecast'] = {}
 
         cal_data['wifi_qlt'] = round(map_to_range(wifi.get_quality(), 0, 100, 0, 4))
+
+        ina219 = ina219.INA219(addr=0x43)
+        cal_data['battery'] = round(ina219.getPercent())//10*10
+        cal_data['battery_charging'] = ina219.getCharging()
+        if cal_data['battery'] < 20:
+            cal_data['battery'] = 20
+        elif cal_data['battery'] == 40:
+            cal_data['battery'] = 30
+        elif cal_data['battery'] == 70:
+            cal_data['battery'] = 60
+        elif cal_data['battery'] > 95:
+            cal_data['battery'] = 100
 
         logger.info('Calendar data collected')
 
