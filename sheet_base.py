@@ -100,11 +100,16 @@ class TearOffCalendarBaseSheet:
                 pageRed = Image.open(os.path.join(self.image_path, 'sheet_r.png'))
 
                 self.epd.init()
+                logger.debug('EPD Init done')
                 self.epd.Clear()
+                logger.debug('EPD Clear done')
 
+                logger.debug('EPD Display')
                 self.epd.display(self.epd.getbuffer(pageBlack), self.epd.getbuffer(pageRed))
 
-                time.sleep(2)
+                logger.debug('Sleep')
+                time.sleep(1)
+                logger.debug('EPD Sleep')
                 self.epd.sleep()
             except IOError as e:
                 print(e)
@@ -119,11 +124,16 @@ class TearOffCalendarBaseSheet:
                 page = Image.open(os.path.join(self.image_path, 'backsheet.png'))
 
                 self.epd_b.Init_4Gray()
+                logger.debug('EPD Init done')
                 self.epd_b.Clear()
+                logger.debug('EPD Clear done')
 
+                logger.debug('EPD Display')
                 self.epd_b.display_4Gray(self.epd_b.getbuffer_4Gray(page))
 
-                time.sleep(2)
+                logger.debug('Sleep')
+                time.sleep(1)
+                logger.debug('EPD Sleep')
                 self.epd.sleep()
             except IOError as e:
                 print(e)

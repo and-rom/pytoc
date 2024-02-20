@@ -36,10 +36,12 @@ def main():
         logger.info('Started')
 
         GPIO.setmode(GPIO.BCM)
+        logger.debug('GPIO init done')
 
         buttonPin = args.buttonPin
 
         GPIO.setup(buttonPin, GPIO.IN,pull_up_down=GPIO.PUD_UP)
+        logger.debug('GPIO setup done')
 
         sheet = TearOffCalendarBaseSheet(args.image)
 
@@ -48,6 +50,7 @@ def main():
         while True:
             buttonState = GPIO.input(buttonPin)
             if (buttonState == GPIO.HIGH and not lock):
+                logger.info('Button pressed and locked')
                 lock = True
                 if not back:
                     sheet.display_back()
@@ -59,6 +62,7 @@ def main():
                     back = False
             if (buttonState == GPIO.LOW and lock):
                 lock = False
+                logger.info('Button unlocked')
             sleep(0.1);
     except KeyboardInterrupt:
         return quit()
