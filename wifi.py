@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import subprocess
@@ -15,7 +15,7 @@ def get_quality():
         length=len(keyword)
         if line[:length] == keyword:
             quality = line[length:].split()[0].split('/')
-            return str(int(round(float(quality[0]) / float(quality[1]) * 100)))
+            return int(round(float(quality[0]) / float(quality[1]) * 100))
 
 if __name__=='__main__':
     print(get_quality())
