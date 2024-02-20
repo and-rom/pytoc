@@ -195,7 +195,7 @@ class INA219:
         return p
 
     def getCharging(self):
-        return 1 if self.getCurrent_mA() > 0 else 0
+        return 0 if self.getCurrent_mA() < 0 else 1
 
 if __name__=='__main__':
 
