@@ -10,9 +10,13 @@ import locale
 import ephem
 from owm import OWM
 from gm import GM
+import wifi
 import json
 
 logger = logging.getLogger(__name__)
+
+def map_to_range(value, inMin, inMax, outMin, outMax):
+  return outMin + (float(value - inMin) / float(inMax - inMin) * (outMax - outMin))
 
 class TearOffCalendarData:
 
@@ -124,6 +128,8 @@ class TearOffCalendarData:
             cal_data['forecast'] = weather.get_forecast((cal_data['latitude'], cal_data['longitude']))
         else:
             cal_data['forecast'] = {}
+
+        cal_data['wifi_qlt'] = round(map_to_range(wifi.get_quality(), 0, 100, 0, 4))
 
         logger.info('Calendar data collected')
 

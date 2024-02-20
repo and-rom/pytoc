@@ -33,6 +33,9 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         i = 0 if not cal_data['dayoff'] or not screen else 1
         logger.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
 
+        wifi = Image.open(os.path.join(self.clip_path, 'wifi_' + str(cal_data['wifi_qlt']) + '.png'), mode='r')
+        pageBlack.paste(signal, (1, 1), signal)
+
         '''
             Draw corners
         '''
