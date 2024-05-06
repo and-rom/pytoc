@@ -60,6 +60,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
             Draw day
         '''
+        y = 80
 
         day = str(cal_data['day'])
         #print(day)
@@ -68,11 +69,12 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         day_font_ttf = 'AbrilFatface-Regular.ttf'
         day_font = ImageFont.truetype(os.path.join(self.fonts_path, day_font_ttf), 125)
         day_w, day_h = draw[i].textsize(day, font=day_font)
-        draw[i].text(((self.page_w-day_w)/2, 77), day, font=day_font)
+        draw[i].text(((self.page_w-day_w)/2, y), day, font=day_font)
 
         '''
             Draw month
         '''
+        y = 78
 
         month = self.MONTHS[cal_data['month']-1].upper()
         #print(month)
@@ -80,11 +82,12 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].rectangle((60, 85, 240, 110), outline = 0)
         month_font = ImageFont.truetype(os.path.join(self.fonts_path, 'PlayfairDisplay-ExtraBold.ttf'), 32)
         month_w, month_h = draw[0].textsize(month, font=month_font)
-        draw[j].text(((self.page_w-month_w)/2, 75), month, font=month_font)
+        draw[j].text(((self.page_w-month_w)/2, y), month, font=month_font)
 
         '''
             Draw weekday
         '''
+        y = 220
 
         weekday = self.WEEKDAYS[cal_data['weekday']].upper()
         #print(weekday)
@@ -92,11 +95,12 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].rectangle((60, 220, 240, 245), outline = 0)
         weekday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'PlayfairDisplay-Bold.ttf'), 22)
         weekday_w, weekday_h = draw[i].textsize(weekday, font=weekday_font)
-        draw[i].text(((self.page_w-weekday_w)/2, 217), weekday, font=weekday_font)
+        draw[i].text(((self.page_w-weekday_w)/2, y), weekday, font=weekday_font)
 
         '''
             Draw holiday title
         '''
+        y = 55
 
         #draw[0].rectangle((38, 35, 262, 80), outline = 0)
 
@@ -122,7 +126,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
                 holiday_font_size -=2
                 holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Bold.ttf'), holiday_font_size)
                 holiday_w, holiday_h = draw[j].textsize(holiday_title, font=holiday_font)
-            draw[j].text(((self.page_w-holiday_w)/2, 57-holiday_h/2), holiday_title, font=holiday_font, align='center')
+            draw[j].text(((self.page_w-holiday_w)/2, y-holiday_h/2), holiday_title, font=holiday_font, align='center')
 
 
         '''
@@ -167,7 +171,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
             Draw constellation
         '''
 
-        y=245
+        y=248
         #draw[0].rectangle((...), outline = 0)
 
         c = 'Луна в созвездии {}'.format(self.CONSTELLATIONS[cal_data['constellation']])
@@ -182,7 +186,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
             Draw weather forecast
         '''
 
-        y = 270
+        y = 272
         #draw[0].rectangle((38, y, 262, y+83), outline = 0)
 
         #draw[0].line((94, y, 94, y+83), fill = 0)
