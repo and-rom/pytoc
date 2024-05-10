@@ -85,6 +85,7 @@ class TearOffCalendarData:
         cal_data['weekday'] = int(t.strftime('%w'))
         cal_data['dayoff'] = False
         cal_data['holiday'] = False
+        cal_data['holiday_dayoff'] = False
         year = t.strftime('%Y')
 
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'misc', 'holidays_' + year + '.json'), 'rb') as f:
