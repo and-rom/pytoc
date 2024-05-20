@@ -152,7 +152,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         s = 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}'.format(
             cal_data['sunrise'].strftime('%H:%M'),
             cal_data['sunset'].strftime('%H:%M'),
-            super().strfdelta(cal_data['daylength'], '%H:%M'))
+            self.strfdelta(cal_data['daylength'], '%H:%M'))
         #print(s)
 
         m = 'Заход\n{}\nВосход\n{}\n{}\n{}-й\nдень'.format(
@@ -170,8 +170,8 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
             Draw constellation
         '''
-
         y=248
+
         #draw[0].rectangle((...), outline = 0)
 
         c = 'Луна в созвездии {}'.format(self.CONSTELLATIONS[cal_data['constellation']])
@@ -185,8 +185,8 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
             Draw weather forecast
         '''
-
         y = 272
+
         #draw[0].rectangle((38, y, 262, y+83), outline = 0)
 
         #draw[0].line((94, y, 94, y+83), fill = 0)
