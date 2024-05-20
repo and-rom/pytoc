@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import smbus
-import time
 
 # Config Register (R/W)
 _REG_CONFIG                 = 0x00
