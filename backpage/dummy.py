@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 class Dummy():
 
     def __init__(self, w = 300, h = 400, image_path = ''):
+        logger.debug('Dummy backpage init')
         self.__name = 'dummy'
         p = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
         self.fonts_path = os.path.join(p, 'fonts')
