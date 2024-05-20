@@ -3,7 +3,6 @@
 
 import os
 import logging
-from data import TearOffCalendarData
 from sheet_base import TearOffCalendarBaseSheet, DeltaTemplate
 import textwrap
 from PIL import Image, ImageDraw, ImageFont
@@ -24,6 +23,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
     def draw(self, cal_data = None):
         if cal_data is None:
+            from data import TearOffCalendarData
             cal = TearOffCalendarData()
             cal_data = cal.get_data()
 
