@@ -33,10 +33,10 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         i = 0 if not cal_data['dayoff'] or not screen else 1
         logger.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
 
-        wifi = Image.open(os.path.join(self.clip_path, 'wifi_' + str(cal_data['wifi_qlt']) + '.png'), mode='r')
+        wifi = Image.open(os.path.join(self.icons_path, 'wifi', 'wifi_' + str(cal_data['wifi_qlt']) + '.png'), mode='r')
         pageBlack.paste(signal, (1, 2), wifi)
 
-        battery = Image.open(os.path.join(self.clip_path, 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
+        battery = Image.open(os.path.join(self.icons_path, 'battery', 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
         pageBlack.paste(battery, (self.page_w-21, 2), battery)
 
         '''
@@ -206,7 +206,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
                 temp_w, temp_h = draw[0].textsize(temp, font=forecast_font)
                 draw[0].text((66-temp_w/2+pos, y+63), temp, font=forecast_font, fill='black')
 
-                icon = Image.open(os.path.join(self.icons_path, cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
+                icon = Image.open(os.path.join(self.icons_path, 'weather', cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
                 pageBlack.paste(icon, (46+pos, y+22), icon)
 
                 pos += 56
