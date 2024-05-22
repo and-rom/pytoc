@@ -17,9 +17,19 @@ logger = logging.getLogger(__name__)
 class TearOffCalendarSheet(TearOffCalendarBaseSheet):
     def __init__(self, image_path = ''):
         super().__init__(image_path)
+
         self.clip_path = self.clip_path + '_7in5'
         self.icons_path = self.icons_path + '_7in5'
-        if not screen:
+
+        if screen:
+            self.epd = epd7in5b_V2.EPD()
+            self.epd_b = epd7in5b_V2.EPD()
+            self.page_w = self.epd.height
+            self.page_h = self.epd.width
+        else:
+            if self.image_path == '':
+                logger.error('There is no screen to draw on and image path not specified')
+                return
             self.page_w = 480
             self.page_h = 800
 
