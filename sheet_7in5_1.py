@@ -210,7 +210,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].line((61, y+101, 419, y+101), fill = 0)
 
         if cal_data['forecast']:
-            forecast_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 29)
+            forecast_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 24)
             pos = 0
             for part in cal_data['forecast']['order']:
                 day_part = self.DAY_PARTS[part]
@@ -218,7 +218,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
                 draw[0].text((106-day_part_w/2+pos, y-1), day_part, font=forecast_font, fill='black')
                 temp = cal_data['forecast']['parts'][part]['temp']
                 temp_w, temp_h = draw[0].textsize(temp, font=forecast_font)
-                draw[0].text((106-temp_w/2+pos, y+101), temp, font=forecast_font, fill='black')
+                draw[0].text((106-temp_w/2+pos, y+105), temp, font=forecast_font, fill='black')
 
                 icon = Image.open(os.path.join(self.icons_path, 'weather', cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
                 pageBlack.paste(icon, (74+pos, y+35), icon)
