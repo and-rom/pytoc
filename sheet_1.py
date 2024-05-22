@@ -218,19 +218,21 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
             Draw location name
         '''
+        y = 15
 
         location_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 12)
         location_name_w, location_name_h = draw[0].textsize(cal_data['location_name'], font=location_name_font)
-        draw[0].text(((self.page_w-location_name_w)/2, 15), cal_data['location_name'], font=location_name_font)
+        draw[0].text(((self.page_w-location_name_w)/2, y), cal_data['location_name'], font=location_name_font)
 
         '''
             Draw back page source name
         '''
+        y = 13
 
         if self.backpage_name != '':
             backpage_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 12)
             backpage_name_w, backpage_name_h = draw[0].textsize(self.backpage_name, font=backpage_name_font)
-            draw[0].text(((self.page_w-backpage_name_w)/2, 375), self.backpage_name, font=backpage_name_font)
+            draw[0].text(((self.page_w-backpage_name_w)/2, self.page_h-y-backpage_name_h), self.backpage_name, font=backpage_name_font)
 
         '''
             Send images to screen or save to file
