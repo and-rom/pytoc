@@ -6,7 +6,6 @@ import logging
 import random
 from backpage.dummy import Dummy
 from backpage.xkcd import XKCD
-from backpage.bashorg import BashOrg
 
 parser = argparse.ArgumentParser(prog='pytoc', description='Python Tear-Off Calendar', usage='%(prog)s [options]')
 
