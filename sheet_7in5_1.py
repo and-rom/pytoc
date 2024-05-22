@@ -67,15 +67,15 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         pages[j].paste(corner, (368, 32), corner)
 
         corner = corner.rotate(180)
-        pages[j].paste(corner, (32, 528), corner)
+        pages[j].paste(corner, (32, 688), corner)
 
         corner = corner.rotate(90)
-        pages[j].paste(corner, (368, 528), corner)
+        pages[j].paste(corner, (368, 688), corner)
 
         '''
             Draw day
         '''
-        y = 123
+        y = 200
 
         day = str(cal_data['day'])
         #print(day)
@@ -89,7 +89,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
             Draw month
         '''
-        y = 120
+        y = 150
 
         month = self.MONTHS[cal_data['month']-1].upper()
         #print(month)
@@ -102,7 +102,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
             Draw weekday
         '''
-        y = 347
+        y = 450
 
         weekday = self.WEEKDAYS[cal_data['weekday']].upper()
         #print(weekday)
@@ -134,7 +134,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
                 col += 5
                 holiday_title_arr = textwrap.wrap(holiday_title, width=col)
             holiday_title = '\n'.join(holiday_title_arr)
-            holiday_font_size = 35
+            holiday_font_size = 38
             holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Bold.ttf'), holiday_font_size)
             holiday_w, holiday_h = draw[j].textsize(holiday_title, font=holiday_font)
             while self.page_w - holiday_w < 80 or holiday_h > 45:
@@ -155,14 +155,14 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].ellipse((24, 152, 32, 160), fill = 'black')
 
         sun_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 35)
-        draw[0].text((15, 138), '\U00002609', font=sun_font, fill='black')
+        draw[0].text((15, 182), '\U00002609', font=sun_font, fill='black')
 
         #draw[0].rectangle((438, 143, 465, 169), outline = 0)
         #draw[0].ellipse((440, 144, 464, 168), fill = 'black')
         #draw[0].ellipse((434, 144, 458, 168), fill = 'white')
 
         moon_font = ImageFont.truetype(os.path.join(self.fonts_path, 'moon_phases.ttf'), 29)
-        draw[0].text((438, 143), self.MOON_PHASES[cal_data['moon_phase_id']][0], font=moon_font, fill='black')
+        draw[0].text((438, 182), self.MOON_PHASES[cal_data['moon_phase_id']][0], font=moon_font, fill='black')
 
         s = 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}'.format(
             cal_data['sunrise'].strftime('%H:%M'),
@@ -176,14 +176,14 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
             cal_data['moon_day'])
 
         sm_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 26)
-        draw[0].text((16, 176), s, font=sm_font, fill='black')
+        draw[0].text((16, 220), s, font=sm_font, fill='black')
         m_w, m_h = draw[0].textsize(m, font=sm_font)
-        draw[0].text((self.page_w-16-m_w, 176), m, font=sm_font, align='right')
+        draw[0].text((self.page_w-16-m_w, 220), m, font=sm_font, align='right')
 
         '''
             Draw constellation
         '''
-        y=392
+        y=520
 
         #draw[0].rectangle((...), outline = 0)
 
@@ -198,7 +198,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
             Draw weather forecast
         '''
-        y = 432
+        y = 575
 
         #draw[0].rectangle((61, y, 419, y+133), outline = 0)
 
@@ -233,7 +233,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
         y = 5
 
-        location_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 19)
+        location_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 15)
         location_name_w, location_name_h = draw[0].textsize(cal_data['location_name'], font=location_name_font)
         draw[0].text(((self.page_w-location_name_w)/2, y), cal_data['location_name'], font=location_name_font)
 
@@ -243,7 +243,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         y = 5
 
         if self.backpage_name != '':
-            backpage_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 19)
+            backpage_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 15)
             backpage_name_w, backpage_name_h = draw[0].textsize(self.backpage_name, font=backpage_name_font)
             draw[0].text(((self.page_w-backpage_name_w)/2, self.page_h-y-backpage_name_h), self.backpage_name, font=backpage_name_font)
 
