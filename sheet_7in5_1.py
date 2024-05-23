@@ -52,22 +52,15 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         j = 0 if not cal_data['holiday_dayoff'] or not screen else 1
         logger.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
 
-        self.draw_wifi(pages[self.BLACK], cal_data['wifi_qlt'], 2, 3)
-
-        self.draw_battery(pages[self.BLACK], cal_data['battery'], cal_data['battery_charging'], 'r-2', 3)
-
         self.draw_decor_corners(pages[j], 32)
-
+        self.draw_wifi(pages[self.BLACK], cal_data['wifi_qlt'], 2, 3)
+        self.draw_battery(pages[self.BLACK], cal_data['battery'], cal_data['battery_charging'], 'r-2', 3)
         self.draw_day(draw[i], cal_data['day'], 200, 'AbrilFatface-Regular.ttf', 200)
-
         self.draw_month(draw[j], cal_data['month'], 'c', 150, 'PlayfairDisplay-ExtraBold.ttf', 51)
-
         self.draw_weekday(draw[i], cal_data['weekday'], 'c', 450, 'PlayfairDisplay-Bold.ttf', 35)
-
         if cal_data['holiday']:
             logger.debug('Red goes on black for holiday: ' + 'yes' if j == 0 else 'no')
             self.draw_holiday_title(draw[j], cal_data['holiday_title'], cal_data['holiday_type'], 91, 'Cuprum-Bold.ttf', 38)
-
 
         '''
             Draw sun and moon info
