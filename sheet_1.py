@@ -24,22 +24,25 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
             cal = TearOffCalendarData()
             cal_data = cal.get_data()
 
-        pageBlack = Image.new('1', (self.page_w, self.page_h), 255)
-        pageRed = Image.new('1', (self.page_w, self.page_h), 255)
-
-        pages = (pageBlack, pageRed)
-        draw = (ImageDraw.Draw(pageBlack), ImageDraw.Draw(pageRed))
+        pages = (
+                    Image.new('1', (self.page_w, self.page_h), 255),
+                    Image.new('1', (self.page_w, self.page_h), 255)
+                )
+        draw = (
+                    ImageDraw.Draw(pages[self.BLACK]),
+                    ImageDraw.Draw(pages[self.RED])
+                )
 
         # Where to draw parts that may be red.
-        i = 0 if not cal_data['dayoff'] or not screen else 1
-        j = 0 if not cal_data['holiday_dayoff'] or not screen else 1
+        i = self.BLACK if not cal_data['dayoff'] or not screen else self.RED
+        j = self.BLACK if not cal_data['holiday_dayoff'] or not screen else self.RED
         logger.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
 
         wifi = Image.open(os.path.join(self.icons_path, 'wifi', 'wifi_' + str(cal_data['wifi_qlt']) + '.png'), mode='r')
-        pages[0].paste(wifi, (1, 2), wifi)
+        pages[self.BLACK].paste(wifi, (1, 2), wifi)
 
         battery = Image.open(os.path.join(self.icons_path, 'battery', 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
-        pages[0].paste(battery, (self.page_w-21, 2), battery)
+        pages[self.BLACK].paste(battery, (self.page_w-21, 2), battery)
 
         '''
             Draw corners
@@ -81,8 +84,8 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         #draw[0].rectangle((60, 85, 240, 110), outline = 0)
         month_font = ImageFont.truetype(os.path.join(self.fonts_path, 'PlayfairDisplay-ExtraBold.ttf'), 32)
-        month_w, month_h = draw[0].textsize(month, font=month_font)
-        draw[j].text(((self.page_w-month_w)/2, y), month, font=month_font)
+        month_w, month_h = draw[self.BLACK].textsize(month, font=month_font)
+        draw[j].text(((self.page_w-month_w)/2, y), month, font=month_font)z
 
         '''
             Draw weekday
@@ -105,7 +108,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].rectangle((38, 35, 262, 80), outline = 0)
 
         if cal_data['holiday']:
-            logger.debug('Red goes on black for holiday: ' + 'yes' if j == 0 else 'no')
+            logger.debug('Red goes on black for holiday: ' + 'yes' if j == self.BLACK else 'no')
 
             if cal_data['holiday_type'] in ['int', 'un']:
                 holiday_title = '\U0001F310 ' + cal_data['holiday_title']
@@ -140,14 +143,14 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].ellipse((15, 95, 20, 100), fill = 'black')
 
         sun_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 22)
-        draw[0].text((9, 86), '\U00002609', font=sun_font, fill='black')
+        draw[self.BLACK].text((9, 86), '\U00002609', font=sun_font, fill='black')
 
         #draw[0].rectangle((274, 89, 291, 106), outline = 0)
         #draw[0].ellipse((275, 90, 290, 105), fill = 'black')
         #draw[0].ellipse((271, 90, 286, 105), fill = 'white')
 
         moon_font = ImageFont.truetype(os.path.join(self.fonts_path, 'moon_phases.ttf'), 18)
-        draw[0].text((274, 89), self.MOON_PHASES[cal_data['moon_phase_id']][0], font=moon_font, fill='black')
+        draw[self.BLACK].text((274, 89), self.MOON_PHASES[cal_data['moon_phase_id']][0], font=moon_font, fill='black')
 
         s = 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}'.format(
             cal_data['sunrise'].strftime('%H:%M'),
@@ -163,9 +166,9 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #print(m)
 
         sm_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 16)
-        draw[0].text((10, 110), s, font=sm_font, fill='black')
-        m_w, m_h = draw[0].textsize(m, font=sm_font)
-        draw[0].text((self.page_w-10-m_w, 110), m, font=sm_font, align='right')
+        draw[self.BLACK].text((10, 110), s, font=sm_font, fill='black')
+        m_w, m_h = draw[self.BLACK].textsize(m, font=sm_font)
+        draw[self.BLACK].text((self.page_w-10-m_w, 110), m, font=sm_font, align='right')
 
         '''
             Draw constellation
@@ -179,8 +182,8 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         #draw[0].rectangle((...), outline = 0)
         c_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Italic.ttf'), 16)
-        c_w, c_h = draw[0].textsize(c, font=c_font)
-        draw[0].text(((self.page_w-c_w)/2, y), c, font=c_font)
+        c_w, c_h = draw[self.BLACK].textsize(c, font=c_font)
+        draw[self.BLACK].text(((self.page_w-c_w)/2, y), c, font=c_font)
 
         '''
             Draw weather forecast
@@ -201,19 +204,19 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
             pos = 0
             for part in cal_data['forecast']['order']:
                 day_part = self.DAY_PARTS[part]
-                day_part_w, day_part_h = draw[0].textsize(day_part, font=forecast_font)
-                draw[0].text((66-day_part_w/2+pos, y-1), day_part, font=forecast_font, fill='black')
+                day_part_w, day_part_h = draw[self.BLACK].textsize(day_part, font=forecast_font)
+                draw[self.BLACK].text((66-day_part_w/2+pos, y-1), day_part, font=forecast_font, fill='black')
                 temp = cal_data['forecast']['parts'][part]['temp']
-                temp_w, temp_h = draw[0].textsize(temp, font=forecast_font)
-                draw[0].text((66-temp_w/2+pos, y+63), temp, font=forecast_font, fill='black')
+                temp_w, temp_h = draw[self.BLACK].textsize(temp, font=forecast_font)
+                draw[self.BLACK].text((66-temp_w/2+pos, y+63), temp, font=forecast_font, fill='black')
 
                 icon = Image.open(os.path.join(self.icons_path, 'weather', cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
-                pages[0].paste(icon, (46+pos, y+22), icon)
+                pages[self.BLACK].paste(icon, (46+pos, y+22), icon)
 
                 pos += 56
         else:
             no_conn = Image.open(os.path.join(self.clip_path, 'no_connection.png'), mode='r')
-            pages[0].paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
+            pages[self.BLACK].paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
 
         '''
             Draw location name
@@ -221,8 +224,8 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         y = 15
 
         location_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 12)
-        location_name_w, location_name_h = draw[0].textsize(cal_data['location_name'], font=location_name_font)
-        draw[0].text(((self.page_w-location_name_w)/2, y), cal_data['location_name'], font=location_name_font)
+        location_name_w, location_name_h = draw[self.BLACK].textsize(cal_data['location_name'], font=location_name_font)
+        draw[self.BLACK].text(((self.page_w-location_name_w)/2, y), cal_data['location_name'], font=location_name_font)
 
         '''
             Draw back page source name
@@ -231,18 +234,18 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         if self.backpage_name != '':
             backpage_name_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 12)
-            backpage_name_w, backpage_name_h = draw[0].textsize(self.backpage_name, font=backpage_name_font)
-            draw[0].text(((self.page_w-backpage_name_w)/2, self.page_h-y-backpage_name_h), self.backpage_name, font=backpage_name_font)
+            backpage_name_w, backpage_name_h = draw[self.BLACK].textsize(self.backpage_name, font=backpage_name_font)
+            draw[self.BLACK].text(((self.page_w-backpage_name_w)/2, self.page_h-y-backpage_name_h), self.backpage_name, font=backpage_name_font)
 
         '''
             Send images to screen or save to file
         '''
         if screen:
-            pages[0].save(os.path.join(self.image_path, 'sheet_b.png'))
-            pages[1].save(os.path.join(self.image_path, 'sheet_r.png'))
+            pages[self.BLACK].save(os.path.join(self.image_path, 'sheet_b.png'))
+            pages[self.RED].save(os.path.join(self.image_path, 'sheet_r.png'))
             logger.info('Images for EPD saved to files.')
         else:
-            pages[0].save(os.path.join(self.image_path, 'sheet.png'))
+            pages[self.BLACK].save(os.path.join(self.image_path, 'sheet.png'))
             logger.info('There is no EPD. Image saved to file.')
 
 if __name__ == "__main__":

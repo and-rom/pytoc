@@ -52,6 +52,8 @@ class TearOffCalendarBaseSheet:
         'm': 'Утро',
         'd': 'День',
         'e': 'Вечер'}
+    BLACK = 0
+    RED = 1
 
     @staticmethod
     def strfdelta(tdelta, fmt):
