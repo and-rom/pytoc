@@ -50,18 +50,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         self.draw_month(draw[j], cal_data['month'], 'c', 78, 'PlayfairDisplay-ExtraBold.ttf', 32)
 
-        '''
-            Draw weekday
-        '''
-        y = 220
-
-        weekday = self.WEEKDAYS[cal_data['weekday']].upper()
-        #print(weekday)
-
-        #draw[0].rectangle((60, 220, 240, 245), outline = 0)
-        weekday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'PlayfairDisplay-Bold.ttf'), 22)
-        weekday_w, weekday_h = draw[i].textsize(weekday, font=weekday_font)
-        draw[i].text(((self.page_w-weekday_w)/2, y), weekday, font=weekday_font)
+        self.draw_weekday(draw[i], cal_data['weekday'], 'c', 220, 'PlayfairDisplay-Bold.ttf', 22)
 
         '''
             Draw holiday title
