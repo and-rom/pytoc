@@ -4,7 +4,6 @@
 import os
 import logging
 from sheet_base import TearOffCalendarBaseSheet, DeltaTemplate
-import textwrap
 from PIL import Image, ImageDraw, ImageFont
 screen = True
 try:
