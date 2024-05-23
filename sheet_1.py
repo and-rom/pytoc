@@ -48,18 +48,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         self.draw_day(draw[i], cal_data['day'], 80, 'AbrilFatface-Regular.ttf', 125)
 
-        '''
-            Draw month
-        '''
-        y = 78
-
-        month = self.MONTHS[cal_data['month']-1].upper()
-        #print(month)
-
-        #draw[0].rectangle((60, 85, 240, 110), outline = 0)
-        month_font = ImageFont.truetype(os.path.join(self.fonts_path, 'PlayfairDisplay-ExtraBold.ttf'), 32)
-        month_w, month_h = draw[self.BLACK].textsize(month, font=month_font)
-        draw[j].text(((self.page_w-month_w)/2, y), month, font=month_font)
+        self.draw_month(draw[j], cal_data['month'], 'c', 78, 'PlayfairDisplay-ExtraBold.ttf', 32)
 
         '''
             Draw weekday
