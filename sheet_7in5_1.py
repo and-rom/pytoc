@@ -61,19 +61,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         self.draw_decor_corners(pages[j], 32)
 
-        '''
-            Draw day
-        '''
-        y = 200
-
-        day = str(cal_data['day'])
-        #print(day)
-
-        #draw[0].rectangle((128, 192, 352, 336), outline = 0)
-        day_font_ttf = 'AbrilFatface-Regular.ttf'
-        day_font = ImageFont.truetype(os.path.join(self.fonts_path, day_font_ttf), 200)
-        day_w, day_h = draw[i].textsize(day, font=day_font)
-        draw[i].text(((self.page_w-day_w)/2, y), day, font=day_font)
+        self.draw_day(draw[i], cal_data['day'], 200, 'AbrilFatface-Regular.ttf', 200)
 
         '''
             Draw month

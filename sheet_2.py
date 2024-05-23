@@ -46,20 +46,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         self.draw_decor_three_hlines(draw[j], 210, 10, (8, 5, 2), (3, 2, 1))
 
-        '''
-            Draw day
-        '''
-
-        y=235
-        #draw[0].rectangle((80, y, 80+140, y+90), outline = 0)
-
-        day = str(cal_data['day'])
-        #print(day)
-
-        day_font_ttf = 'Molot.otf'
-        day_font = ImageFont.truetype(os.path.join(self.fonts_path, day_font_ttf), 120)
-        day_w, day_h = draw[i].textsize(day, font=day_font)
-        draw[i].text(((self.page_w-day_w)/2, y), day, font=day_font)
+        self.draw_day(draw[i], cal_data['day'], 235, 'Molot.otf', 120)
 
         '''
             Draw month and weekday
