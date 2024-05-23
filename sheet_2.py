@@ -44,21 +44,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         battery = Image.open(os.path.join(self.icons_path, 'battery', 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
         pages[self.BLACK].paste(battery, (self.page_w-21, 2), battery)
 
-        '''
-            Draw corners
-        '''
-
-        #corner = Image.open(os.path.join(self.clip_path, 'corner.png'), mode='r')
-        #pageBlack.paste(corner, (20, 20), corner)
-
-        #corner = corner.rotate(270)
-        #pageBlack.paste(corner, (230, 20), corner)
-
-        #corner = corner.rotate(180)
-        #pageBlack.paste(corner, (20, 330), corner)
-
-        #corner = corner.rotate(90)
-        #pageBlack.paste(corner, (230, 330), corner)
+        self.draw_decor_three_hlines(draw[j], 210, 10, (8, 5, 2), (3, 2, 1))
 
         '''
             Draw day
@@ -80,9 +66,6 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         '''
 
         y = 210
-        draw[i].line((10, y-8, 290, y-8), fill = 0, width = 3)
-        draw[i].line((10, y-5, 290, y-5), fill = 0, width = 2)
-        draw[i].line((10, y-2, 290, y-2), fill = 0, width = 1)
 
         month = self.MONTHS[cal_data['month']-1].upper()
         #print(month)

@@ -44,21 +44,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         battery = Image.open(os.path.join(self.icons_path, 'battery', 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
         pages[self.BLACK].paste(battery, (self.page_w-21, 2), battery)
 
-        '''
-            Draw corners
-        '''
-
-        corner = Image.open(os.path.join(self.clip_path, 'corner.png'), mode='r')
-        pages[j].paste(corner, (20, 20), corner)
-
-        corner = corner.rotate(270)
-        pages[j].paste(corner, (230, 20), corner)
-
-        corner = corner.rotate(180)
-        pages[j].paste(corner, (20, 330), corner)
-
-        corner = corner.rotate(90)
-        pages[j].paste(corner, (230, 330), corner)
+        self.draw_decor_corners(pages[j], 20)
 
         '''
             Draw day
