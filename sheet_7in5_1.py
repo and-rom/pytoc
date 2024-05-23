@@ -67,36 +67,9 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         self.draw_weekday(draw[i], cal_data['weekday'], 'c', 450, 'PlayfairDisplay-Bold.ttf', 35)
 
-        '''
-            Draw holiday title
-        '''
-        y = 91
-
-        #draw[0].rectangle((61, 56, 419, 128), outline = 0)
-
         if cal_data['holiday']:
             logger.debug('Red goes on black for holiday: ' + 'yes' if j == 0 else 'no')
-
-            if cal_data['holiday_type'] in ['int', 'un']:
-                holiday_title = '\U0001F310 ' + cal_data['holiday_title']
-            elif cal_data['holiday_type'] in ['prof']:
-                holiday_title = '\U00002692 ' + cal_data['holiday_title']
-            else:
-                holiday_title = cal_data['holiday_title']
-            col = 25
-            holiday_title_arr = textwrap.wrap(holiday_title, width=col)
-            while len(holiday_title_arr) > 2:
-                col += 5
-                holiday_title_arr = textwrap.wrap(holiday_title, width=col)
-            holiday_title = '\n'.join(holiday_title_arr)
-            holiday_font_size = 38
-            holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Bold.ttf'), holiday_font_size)
-            holiday_w, holiday_h = draw[j].textsize(holiday_title, font=holiday_font)
-            while self.page_w - holiday_w < 80 or holiday_h > 45:
-                holiday_font_size -=2
-                holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Bold.ttf'), holiday_font_size)
-                holiday_w, holiday_h = draw[j].textsize(holiday_title, font=holiday_font)
-            draw[j].text(((self.page_w-holiday_w)/2, y-holiday_h/2), holiday_title, font=holiday_font, align='center')
+            self.draw_holiday_title(draw[j], cal_data['holiday_title'], cal_data['holiday_type'], 91, 'Cuprum-Bold.ttf', 38)
 
 
         '''
