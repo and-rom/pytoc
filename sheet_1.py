@@ -40,8 +40,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         self.draw_wifi(pages[self.BLACK], cal_data['wifi_qlt'], 1, 2)
 
-        battery = Image.open(os.path.join(self.icons_path, 'battery', 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
-        pages[self.BLACK].paste(battery, (self.page_w-21, 2), battery)
+        self.draw_battery(pages[self.BLACK], cal_data['battery'], cal_data['battery_charging'], 'r-1', 2)
 
         self.draw_decor_corners(pages[j], 20)
 
