@@ -196,6 +196,53 @@ class TearOffCalendarBaseSheet:
             holiday_w, holiday_h = draw.textsize(holiday_title, font=holiday_font)
         draw.text(((self.page_w-holiday_w)/2, y-holiday_h/2), holiday_title, font=holiday_font, align='center')
 
+    def draw_forecast(self, page, draw, forecast, y, margin, part_h, fontname, fontsize, font_size_redutor, frame = False):
+        '''
+            Draw weather forecast
+        '''
+
+        part_w = int((self.page_w - margin * 2) / 4)
+        height = sum(part_h)
+
+        if frame:
+            draw.rectangle((margin, y, self.page_w - margin, y + height), outline = 0)
+
+            draw.line((margin + part_w, y, margin + part_w, y + height), fill = 0)
+            draw.line((margin + 2 * part_w, y, margin + 2 * part_w, y + height), fill = 0)
+            draw.line((margin + 3 * part_w, y, margin + 3 * part_w, y + height), fill = 0)
+
+            draw.line((margin, y + part_h[0], self.page_w - margin, y + part_h[0]), fill = 0)
+            draw.line((margin, y + part_h[0] + part_h[1], self.page_w - margin, y + part_h[0] + part_h[1]), fill = 0)
+
+        temp_font_size = []
+        for part in forecast['order']:
+            if len(forecast['parts'][part]['temp']) == 10:
+                temp_font_size.append(fontsize-font_size_redutor[0])
+            elif len(forecast['parts'][part]['temp']) == 9:
+                temp_font_size.append(fontsize-font_size_redutor[1])
+            elif len(forecast['parts'][part]['temp']) == 8:
+                temp_font_size.append(fontsize-font_size_redutor[2])
+        temp_font_size = min(temp_font_size)
+
+        day_part_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
+        temp_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), temp_font_size)
+        pos = 0
+        for part in forecast['order']:
+            day_part = self.DAY_PARTS[part]
+            day_part_w, day_part_h = draw.textsize(day_part, font=day_part_font)
+            draw.text(((part_w/2 + margin)-day_part_w/2+pos, y-1), day_part, font=day_part_font, fill='black')
+            temp = forecast['parts'][part]['temp']
+            temp_w, temp_h = draw.textsize(temp, font=temp_font)
+            draw.text((int((part_w/2 + margin)-temp_w/2+pos), int(y + part_h[0] + part_h[1] + (part_h[2] - temp_h)/2)), temp, font=temp_font, fill='black')
+
+            icon = Image.open(os.path.join(self.icons_path, 'weather', forecast['parts'][part]['icon']+'.png'), mode='r')
+            page.paste(icon, (int(margin + (part_w - icon.width) / 2 + pos), int(y + part_h[0] + (part_h[1]-icon.height)/2+0.5)), icon)
+
+            pos += part_w
+
+    def draw_no_conn(self, page, y):
+        no_conn = Image.open(os.path.join(self.clip_path, 'no_connection.png'), mode='r')
+        page.paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
 
     def display_front(self):
         if screen:

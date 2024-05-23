@@ -100,38 +100,10 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         c_w, c_h = draw[self.BLACK].textsize(c, font=c_font)
         draw[self.BLACK].text(((self.page_w-c_w)/2, y), c, font=c_font)
 
-        '''
-            Draw weather forecast
-        '''
-        y = 272
-
-        #draw[0].rectangle((38, y, 262, y+83), outline = 0)
-
-        #draw[0].line((94, y, 94, y+83), fill = 0)
-        #draw[0].line((150, y, 150, y+83), fill = 0)
-        #draw[0].line((206, y, 206, y+83), fill = 0)
-
-        #draw[0].line((38, y+20, 262, y+20), fill = 0)
-        #draw[0].line((38, y+63, 262, y+63), fill = 0)
-
         if cal_data['forecast']:
-            forecast_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 18)
-            pos = 0
-            for part in cal_data['forecast']['order']:
-                day_part = self.DAY_PARTS[part]
-                day_part_w, day_part_h = draw[self.BLACK].textsize(day_part, font=forecast_font)
-                draw[self.BLACK].text((66-day_part_w/2+pos, y-1), day_part, font=forecast_font, fill='black')
-                temp = cal_data['forecast']['parts'][part]['temp']
-                temp_w, temp_h = draw[self.BLACK].textsize(temp, font=forecast_font)
-                draw[self.BLACK].text((66-temp_w/2+pos, y+63), temp, font=forecast_font, fill='black')
-
-                icon = Image.open(os.path.join(self.icons_path, 'weather', cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
-                pages[self.BLACK].paste(icon, (46+pos, y+22), icon)
-
-                pos += 56
+            self.draw_forecast(pages[self.BLACK], draw[self.BLACK], cal_data['forecast'], 272, 38, (20, 43, 20), 'Cuprum-Regular.ttf', 18, (3, 2, 1))
         else:
-            no_conn = Image.open(os.path.join(self.clip_path, 'no_connection.png'), mode='r')
-            pages[self.BLACK].paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
+            self.draw_no_conn(pages[self.BLACK], 272)
 
         '''
             Draw location name

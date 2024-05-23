@@ -113,38 +113,10 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         c_w, c_h = draw[self.BLACK].textsize(c, font=c_font)
         draw[self.BLACK].text(((self.page_w-c_w)/2, y), c, font=c_font)
 
-        '''
-            Draw weather forecast
-        '''
-        y = 575
-
-        #draw[0].rectangle((61, y, 419, y+133), outline = 0)
-
-        #draw[0].line((150, y, 150, y+133), fill = 0)
-        #draw[0].line((240, y, 240, y+133), fill = 0)
-        #draw[0].line((330, y, 330, y+133), fill = 0)
-
-        #draw[0].line((61, y+32, 419, y+32), fill = 0)
-        #draw[0].line((61, y+101, 419, y+101), fill = 0)
-
         if cal_data['forecast']:
-            forecast_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 24)
-            pos = 0
-            for part in cal_data['forecast']['order']:
-                day_part = self.DAY_PARTS[part]
-                day_part_w, day_part_h = draw[self.BLACK].textsize(day_part, font=forecast_font)
-                draw[self.BLACK].text((106-day_part_w/2+pos, y-1), day_part, font=forecast_font, fill='black')
-                temp = cal_data['forecast']['parts'][part]['temp']
-                temp_w, temp_h = draw[self.BLACK].textsize(temp, font=forecast_font)
-                draw[self.BLACK].text((106-temp_w/2+pos, y+105), temp, font=forecast_font, fill='black')
-
-                icon = Image.open(os.path.join(self.icons_path, 'weather', cal_data['forecast']['parts'][part]['icon']+'.png'), mode='r')
-                pages[self.BLACK].paste(icon, (74+pos, y+35), icon)
-
-                pos += 90
+            self.draw_forecast(pages[self.BLACK], draw[self.BLACK], cal_data['forecast'], 575, 61, (32, 69, 32), 'Cuprum-Regular.ttf', 29, (5, 3, 1))
         else:
-            no_conn = Image.open(os.path.join(self.clip_path, 'no_connection.png'), mode='r')
-            pages[self.BLACK].paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
+            self.draw_no_conn(pages[self.BLACK], 575)
 
         '''
             Draw location name
