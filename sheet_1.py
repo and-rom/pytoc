@@ -38,8 +38,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         j = self.BLACK if not cal_data['holiday_dayoff'] or not screen else self.RED
         logger.debug('Red goes on black for day: ' + 'yes' if i == 0 else 'no')
 
-        wifi = Image.open(os.path.join(self.icons_path, 'wifi', 'wifi_' + str(cal_data['wifi_qlt']) + '.png'), mode='r')
-        pages[self.BLACK].paste(wifi, (1, 2), wifi)
+        self.draw_wifi(pages[self.BLACK], cal_data['wifi_qlt'], 1, 2)
 
         battery = Image.open(os.path.join(self.icons_path, 'battery', 'battery_' +  ('charging_' if cal_data['battery_charging'] == 1 else '') + str(cal_data['battery']) + '.png'), mode='r')
         pages[self.BLACK].paste(battery, (self.page_w-21, 2), battery)
