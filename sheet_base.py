@@ -250,6 +250,7 @@ class TearOffCalendarBaseSheet:
                 pageBlack = Image.open(os.path.join(self.image_path, 'sheet_b.png'))
                 pageRed = Image.open(os.path.join(self.image_path, 'sheet_r.png'))
 
+                logger.info('EPD rendering started')
                 self.epd.init()
                 logger.debug('EPD Init done')
                 self.epd.Clear()
@@ -263,7 +264,7 @@ class TearOffCalendarBaseSheet:
                 logger.debug('EPD Sleep')
                 self.epd.sleep()
             except IOError as e:
-                print(e)
+                logger.error('EPD rendering failed with error: ' + e)
             else:
                 logger.info('EPD rendering completed successfully')
         else:
@@ -274,6 +275,7 @@ class TearOffCalendarBaseSheet:
             try:
                 page = Image.open(os.path.join(self.image_path, 'backsheet.png'))
 
+                logger.info('EPD rendering started')
                 self.epd_b.Init_4Gray()
                 logger.debug('EPD Init done')
                 self.epd_b.Clear()
@@ -287,7 +289,7 @@ class TearOffCalendarBaseSheet:
                 logger.debug('EPD Sleep')
                 self.epd.sleep()
             except IOError as e:
-                print(e)
+                logger.error('EPD rendering failed with error: ' + e)
             else:
                 logger.info('EPD rendering completed successfully')
         else:
