@@ -142,7 +142,7 @@ class TearOffCalendarData:
             cal_data['battery'] = 30
         elif cal_data['battery'] == 70:
             cal_data['battery'] = 60
-        elif cal_data['battery'] > 95:
+        elif cal_data['battery'] > 90 and cal_data['battery_charging']:
             cal_data['battery'] = 100
 
         logger.info('Calendar data collected')
