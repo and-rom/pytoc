@@ -85,20 +85,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         m_w, m_h = draw[self.BLACK].textsize(m, font=sm_font)
         draw[self.BLACK].text((self.page_w-10-m_w, 110), m, font=sm_font, align='right')
 
-        '''
-            Draw constellation
-        '''
-        y=248
-
-        #draw[0].rectangle((...), outline = 0)
-
-        c = 'Луна в созвездии {}'.format(self.CONSTELLATIONS[cal_data['constellation']])
-        #print(c)
-
-        #draw[0].rectangle((...), outline = 0)
-        c_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Italic.ttf'), 16)
-        c_w, c_h = draw[self.BLACK].textsize(c, font=c_font)
-        draw[self.BLACK].text(((self.page_w-c_w)/2, y), c, font=c_font)
+        self.draw_constellation(draw[self.BLACK], cal_data['constellation'], 248, 'Cuprum-Italic.ttf', 16)
 
         if cal_data['forecast']:
             self.draw_forecast(pages[self.BLACK], draw[self.BLACK], cal_data['forecast'], 272, 38, (20, 43, 20), 'Cuprum-Regular.ttf', 18, (3, 2, 1))

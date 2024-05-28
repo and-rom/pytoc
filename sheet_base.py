@@ -196,6 +196,17 @@ class TearOffCalendarBaseSheet:
             holiday_w, holiday_h = draw.textsize(holiday_title, font=holiday_font)
         draw.text(((self.page_w-holiday_w)/2, y-holiday_h/2), holiday_title, font=holiday_font, align='center')
 
+    def draw_constellation(self, draw, cons, y, fontname, fontsize):
+        '''
+            Draw constellation
+        '''
+
+        cons = 'Луна в созвездии {}'.format(self.CONSTELLATIONS[cons])
+
+        cons_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
+        cons_w, cons_h = draw.textsize(cons, font=cons_font)
+        draw.text(((self.page_w-cons_w)/2, y), cons, font=cons_font)
+
     def draw_forecast(self, page, draw, forecast, y, margin, part_h, fontname, fontsize, font_size_redutor, frame = False):
         '''
             Draw weather forecast
