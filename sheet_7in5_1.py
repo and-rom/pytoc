@@ -54,7 +54,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
 
         self.draw_decor_corners(pages[j], 32)
         self.draw_wifi(pages[self.BLACK], cal_data['wifi_qlt'], 2, 3)
-        self.draw_battery(pages[self.BLACK], cal_data['battery'], cal_data['battery_charging'], 'r-2', 3)
+        self.draw_battery(pages[self.BLACK], cal_data['battery'], 'r-2', 3)
         self.draw_day(draw[i], cal_data['day'], 200, 'AbrilFatface-Regular.ttf', 200)
         self.draw_month(draw[j], cal_data['month'], 'c', 150, 'PlayfairDisplay-ExtraBold.ttf', 51)
         self.draw_weekday(draw[i], cal_data['weekday'], 'c', 450, 'PlayfairDisplay-Bold.ttf', 35)

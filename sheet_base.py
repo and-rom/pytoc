@@ -125,8 +125,8 @@ class TearOffCalendarBaseSheet:
         wifi = Image.open(os.path.join(self.icons_path, 'wifi', 'wifi_' + str(wifi_qlt) + '.png'), mode='r')
         page.paste(wifi, (x, y), wifi)
 
-    def draw_battery(self, page, battery, battery_charging, x, y):
-        battery = Image.open(os.path.join(self.icons_path, 'battery', 'battery_' +  ('charging_' if battery_charging == 1 else '') + str(battery) + '.png'), mode='r')
+    def draw_battery(self, page, battery, x, y):
+        battery = Image.open(os.path.join(self.icons_path, 'battery', 'battery_' +  ('charging_' if battery['charging'] == 1 else '') + str(battery['level']) + '.png'), mode='r')
         if str(x).startswith('r-'):
             x = self.page_w - battery.width - int(x.split('-')[1])
         page.paste(battery, (x, y), battery)
