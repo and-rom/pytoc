@@ -255,6 +255,36 @@ class TearOffCalendarBaseSheet:
         no_conn = Image.open(os.path.join(self.clip_path, 'no_connection.png'), mode='r')
         page.paste(no_conn, (int((self.page_w-no_conn.size[0])/2), y+1), no_conn)
 
+    def draw_location_name(self, draw, location_name, x, y, fontname, fontsize):
+        '''
+            Draw location name
+        '''
+
+        location_name_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
+        location_name_w, location_name_h = draw.textsize(location_name, font=location_name_font)
+        if str(x).startswith('c'):
+            x = (self.page_w - location_name_w) / 2
+        elif str(x).startswith('r-'):
+            x = self.page_w - location_name_w - int(x.split('-')[1])
+        if str(y).startswith('d-'):
+            y = self.page_h - location_name_h - int(y.split('-')[1])
+        draw.text((x, y), location_name, font=location_name_font)
+
+    def draw_backpage_name(self, draw, backpage_name, x, y, fontname, fontsize):
+        '''
+            Draw back page source name
+        '''
+
+        backpage_name_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
+        backpage_name_w, backpage_name_h = draw.textsize(backpage_name, font=backpage_name_font)
+        if str(x).startswith('c'):
+            x = (self.page_w - backpage_name_w) / 2
+        elif str(x).startswith('r-'):
+            x = self.page_w - backpage_name_w - int(x.split('-')[1])
+        if str(y).startswith('d-'):
+            y = self.page_h - backpage_name_h - int(y.split('-')[1])
+        draw.text((x, y), backpage_name, font=backpage_name_font)
+
     def display_front(self):
         if screen:
             try:
