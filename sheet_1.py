@@ -46,20 +46,14 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         if cal_data['holiday']:
             logger.debug('Red goes on black for holiday: ' + 'yes' if j == self.BLACK else 'no')
             self.draw_holiday_title(draw[j], cal_data['holiday_title'], cal_data['holiday_type'], 55, 'Cuprum-Bold.ttf', 22)
-
         self.draw_sun_info(draw[self.BLACK], cal_data['sun_info'], 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}', 9, 86, 'Cuprum-Regular.ttf', 22, 10, 110, 'Cuprum-Regular.ttf', 16)
-
         self.draw_moon_info(draw[self.BLACK], cal_data['moon_info'], 'Заход\n{}\nВосход\n{}\n{}\n{}-й\nдень', 274, 89, 'moon_phases.ttf', 18, 'r-10', 110, 'Cuprum-Regular.ttf', 16)
-
         self.draw_constellation(draw[self.BLACK], cal_data['moon_info']['constellation'], 248, 'Cuprum-Italic.ttf', 16)
-
         if cal_data['forecast']:
             self.draw_forecast(pages[self.BLACK], draw[self.BLACK], cal_data['forecast'], 272, 38, (20, 43, 20), 'Cuprum-Regular.ttf', 18, (3, 2, 1))
         else:
             self.draw_no_conn(pages[self.BLACK], 272)
-
         self.draw_location_name(draw[self.BLACK], cal_data['location_name'], 'c', 15, 'Cuprum-Regular.ttf', 12)
-
         if self.backpage_name != '':
             self.draw_backpage_name(draw[self.BLACK], self.backpage_name, 'c', 'd-13', 'Cuprum-Regular.ttf', 12)
 
