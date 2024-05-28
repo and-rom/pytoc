@@ -107,9 +107,10 @@ class TearOffCalendarData:
         srn = ephem.localtime(home.next_rising(sun))
         ssp = ephem.localtime(home.previous_setting(sun))
         ssn = ephem.localtime(home.next_setting(sun))
-        cal_data['sunrise'] = srn if srp < btoday else srp
-        cal_data['sunset'] = ssn if ssn < etoday else ssp
-        cal_data['daylength'] = cal_data['sunset'] - cal_data['sunrise']
+        cal_data['sun_info'] = {}
+        cal_data['sun_info']['sunrise'] = srn if srp < btoday else srp
+        cal_data['sun_info']['sunset'] = ssn if ssn < etoday else ssp
+        cal_data['sun_info']['daylength'] = cal_data['sunset'] - cal_data['sunrise']
 
         moon = ephem.Moon()
         moon.compute(home)
@@ -117,13 +118,14 @@ class TearOffCalendarData:
         mrn = ephem.localtime(home.next_rising(moon))
         msp = ephem.localtime(home.previous_setting(moon))
         msn = ephem.localtime(home.next_setting(moon))
-        cal_data['moonrise'] = mrn if mrp < btoday else mrp
-        cal_data['moonset'] = msn if msn < etoday else msp
+        cal_data['moon_info'] = {}
+        cal_data['moon_info']['moonrise'] = mrn if mrp < btoday else mrp
+        cal_data['moon_info']['moonset'] = msn if msn < etoday else msp
 
-        cal_data['constellation'] = ephem.constellation(moon)[0]
+        cal_data['moon_info']['constellation'] = ephem.constellation(moon)[0]
 
-        cal_data['moon_day'] = int(home.date - ephem.previous_new_moon(home.date))+1
-        cal_data['moon_phase_id'] = self.__get_moon_phase(home)
+        cal_data['moon_info']['moon_day'] = int(home.date - ephem.previous_new_moon(home.date))+1
+        cal_data['moon_info']['moon_phase_id'] = self.__get_moon_phase(home)
 
         if weather_service:
             weather = globals()[weather_service]()

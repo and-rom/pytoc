@@ -80,25 +80,25 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         #draw[0].ellipse((434, 144, 458, 168), fill = 'white')
 
         moon_font = ImageFont.truetype(os.path.join(self.fonts_path, 'moon_phases.ttf'), 29)
-        draw[self.BLACK].text((438, 182), self.MOON_PHASES[cal_data['moon_phase_id']][0], font=moon_font, fill='black')
+        draw[self.BLACK].text((438, 182), self.MOON_PHASES[cal_data['moon_info']['moon_phase_id']][0], font=moon_font, fill='black')
 
         s = 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}'.format(
-            cal_data['sunrise'].strftime('%H:%M'),
-            cal_data['sunset'].strftime('%H:%M'),
-            self.strfdelta(cal_data['daylength'], '%H:%M'))
+            cal_data['sun_info']['sunrise'].strftime('%H:%M'),
+            cal_data['sun_info']['sunset'].strftime('%H:%M'),
+            self.strfdelta(cal_data['sun_info']['daylength'], '%H:%M'))
 
         m = 'Заход\n{}\nВосход\n{}\n{}\n{}-й\nдень'.format(
-            cal_data['moonset'].strftime('%H:%M'),
-            cal_data['moonrise'].strftime('%H:%M'),
-            self.MOON_PHASES[cal_data['moon_phase_id']][1],
-            cal_data['moon_day'])
+            cal_data['moon_info']['moonset'].strftime('%H:%M'),
+            cal_data['moon_info']['moonrise'].strftime('%H:%M'),
+            self.MOON_PHASES[cal_data['moon_info']['moon_phase_id']][1],
+            cal_data['moon_info']['moon_day'])
 
         sm_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 26)
         draw[self.BLACK].text((16, 220), s, font=sm_font, fill='black')
         m_w, m_h = draw[self.BLACK].textsize(m, font=sm_font)
         draw[self.BLACK].text((self.page_w-16-m_w, 220), m, font=sm_font, align='right')
 
-        self.draw_constellation(draw[self.BLACK], cal_data['constellation'], 520, 'Cuprum-Italic.ttf', 26)
+        self.draw_constellation(draw[self.BLACK], cal_data['moon_info']['constellation'], 520, 'Cuprum-Italic.ttf', 26)
 
         if cal_data['forecast']:
             self.draw_forecast(pages[self.BLACK], draw[self.BLACK], cal_data['forecast'], 575, 61, (32, 69, 32), 'Cuprum-Regular.ttf', 29, (5, 3, 1))
@@ -134,12 +134,12 @@ if __name__ == "__main__":
         except:
             logger.error("Can't read supplied filename.")
         cal_data = json.loads(f.read())
-        cal_data['moonrise'] = datetime.strptime(cal_data['moonrise'], '%Y-%m-%d %H:%M:%S.%f')
-        cal_data['moonset'] = datetime.strptime(cal_data['moonset'], '%Y-%m-%d %H:%M:%S.%f')
-        cal_data['sunrise'] = datetime.strptime(cal_data['sunrise'], '%Y-%m-%d %H:%M:%S.%f')
-        cal_data['sunset'] = datetime.strptime(cal_data['sunset'], '%Y-%m-%d %H:%M:%S.%f')
-        t = datetime.strptime(cal_data['daylength'], '%H:%M:%S.%f')
-        cal_data['daylength'] = timedelta(hours=t.hour, minutes=t.minute, seconds=t.second, microseconds=t.microsecond)
+        cal_data['moon_info']['moonrise'] = datetime.strptime(cal_data['moon_info']['moonrise'], '%Y-%m-%d %H:%M:%S.%f')
+        cal_data['moon_info']['moonset'] = datetime.strptime(cal_data['moon_info']['moonset'], '%Y-%m-%d %H:%M:%S.%f')
+        cal_data['sun_info']['sunrise'] = datetime.strptime(cal_data['sun_info']['sunrise'], '%Y-%m-%d %H:%M:%S.%f')
+        cal_data['sun_info']['sunset'] = datetime.strptime(cal_data['sun_info']['sunset'], '%Y-%m-%d %H:%M:%S.%f')
+        t = datetime.strptime(cal_data['sun_info']['daylength'], '%H:%M:%S.%f')
+        cal_data['sun_info']['daylength'] = timedelta(hours=t.hour, minutes=t.minute, seconds=t.second, microseconds=t.microsecond)
         sheet.draw(cal_data)
     else:
         sheet.draw()
