@@ -47,43 +47,9 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
             logger.debug('Red goes on black for holiday: ' + 'yes' if j == self.BLACK else 'no')
             self.draw_holiday_title(draw[j], cal_data['holiday_title'], cal_data['holiday_type'], 55, 'Cuprum-Bold.ttf', 22)
 
-        '''
-            Draw sun and moon info
-        '''
+        self.draw_sun_info(draw[self.BLACK], cal_data['sun_info'], 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}', 9, 86, 'Cuprum-Regular.ttf', 22, 10, 110, 'Cuprum-Regular.ttf', 16)
 
-        #draw[0].line((10, 89, 290, 89), fill = 0)
-
-        #draw[0].rectangle((9, 89, 26, 106), outline = 0)
-        #draw[0].ellipse((10, 90, 25, 105), fill = 'white', outline='black')
-        #draw[0].ellipse((15, 95, 20, 100), fill = 'black')
-
-        sun_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 22)
-        draw[self.BLACK].text((9, 86), '\U00002609', font=sun_font, fill='black')
-
-        #draw[0].rectangle((274, 89, 291, 106), outline = 0)
-        #draw[0].ellipse((275, 90, 290, 105), fill = 'black')
-        #draw[0].ellipse((271, 90, 286, 105), fill = 'white')
-
-        moon_font = ImageFont.truetype(os.path.join(self.fonts_path, 'moon_phases.ttf'), 18)
-        draw[self.BLACK].text((274, 89), self.MOON_PHASES[cal_data['moon_info']['moon_phase_id']][0], font=moon_font, fill='black')
-
-        s = 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}'.format(
-            cal_data['sun_info']['sunrise'].strftime('%H:%M'),
-            cal_data['sun_info']['sunset'].strftime('%H:%M'),
-            self.strfdelta(cal_data['sun_info']['daylength'], '%H:%M'))
-        #print(s)
-
-        m = 'Заход\n{}\nВосход\n{}\n{}\n{}-й\nдень'.format(
-            cal_data['moon_info']['moonset'].strftime('%H:%M'),
-            cal_data['moon_info']['moonrise'].strftime('%H:%M'),
-            self.MOON_PHASES[cal_data['moon_info']['moon_phase_id']][1],
-            cal_data['moon_info']['moon_day'])
-        #print(m)
-
-        sm_font = ImageFont.truetype(os.path.join(self.fonts_path, 'Cuprum-Regular.ttf'), 16)
-        draw[self.BLACK].text((10, 110), s, font=sm_font, fill='black')
-        m_w, m_h = draw[self.BLACK].textsize(m, font=sm_font)
-        draw[self.BLACK].text((self.page_w-10-m_w, 110), m, font=sm_font, align='right')
+        self.draw_moon_info(draw[self.BLACK], cal_data['moon_info'], 'Заход\n{}\nВосход\n{}\n{}\n{}-й\nдень', 274, 89, 'moon_phases.ttf', 18, 'r-10', 110, 'Cuprum-Regular.ttf', 16)
 
         self.draw_constellation(draw[self.BLACK], cal_data['moon_info']['constellation'], 248, 'Cuprum-Italic.ttf', 16)
 

@@ -196,6 +196,44 @@ class TearOffCalendarBaseSheet:
             holiday_w, holiday_h = draw.textsize(holiday_title, font=holiday_font)
         draw.text(((self.page_w-holiday_w)/2, y-holiday_h/2), holiday_title, font=holiday_font, align='center')
 
+    def draw_sun_info(self, draw, sun_info, sun_info_fmt, icon_x, icon_y, icon_fontname, icon_fontsize, x, y, fontname, fontsize):
+        '''
+            Draw sun info
+        '''
+
+        icon_font = ImageFont.truetype(os.path.join(self.fonts_path, icon_fontname), icon_fontsize)
+        draw.text((icon_x, icon_y), '\U00002609', font=icon_font, fill='black')
+
+        sun_info = sun_info_fmt.format(
+            sun_info['sunrise'].strftime('%H:%M'),
+            sun_info['sunset'].strftime('%H:%M'),
+            self.strfdelta(sun_info['daylength'], '%H:%M'))
+        sun_info_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
+        sun_info_w, sun_info_h = draw.textsize(sun_info, font=sun_info_font)
+        draw.text((x, y), sun_info, font=sun_info_font, fill='black')
+
+    def draw_moon_info(self, draw, moon_info, moon_info_fmt, icon_x, icon_y, icon_fontname, icon_fontsize, x, y, fontname, fontsize):
+        '''
+            Draw sun info
+        '''
+
+        icon_font = ImageFont.truetype(os.path.join(self.fonts_path, icon_fontname), icon_fontsize)
+        draw.text((icon_x, icon_y), self.MOON_PHASES[moon_info['moon_phase_id']][0], font=icon_font, fill='black')
+
+        moon_info = moon_info_fmt.format(
+            moon_info['moonset'].strftime('%H:%M'),
+            moon_info['moonrise'].strftime('%H:%M'),
+            self.MOON_PHASES[moon_info['moon_phase_id']][1],
+            moon_info['moon_day'])
+        moon_info_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
+        moon_info_w, moon_info_h = draw.textsize(moon_info, font=moon_info_font)
+        if str(x).startswith('r-'):
+            x = self.page_w - moon_info_w - int(x.split('-')[1])
+            align = 'right'
+        else:
+            align = 'left'
+        draw.text((x, y), moon_info, font=moon_info_font, fill='black', align=align)
+
     def draw_constellation(self, draw, cons, y, fontname, fontsize):
         '''
             Draw constellation
