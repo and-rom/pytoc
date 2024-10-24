@@ -271,6 +271,8 @@ class TearOffCalendarBaseSheet:
                 temp_font_size.append(fontsize-font_size_redutor[1])
             elif len(forecast['parts'][part]['temp']) == 8:
                 temp_font_size.append(fontsize-font_size_redutor[2])
+            else:
+                temp_font_size.append(fontsize)
         temp_font_size = min(temp_font_size)
 
         day_part_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
