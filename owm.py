@@ -4,8 +4,8 @@
 import logging
 import requests
 from datetime import datetime, timedelta
-from pprint import pprint
 from owm_cfg import api_key
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -106,4 +106,4 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     owm = OWM()
     forecast = owm.get_forecast(('55.755864', '37.617698'))
-    pprint(forecast)
+    print(json.dumps(forecast, indent=4, sort_keys=True, default=str, ensure_ascii=False))
