@@ -3,7 +3,6 @@
 
 import os
 import logging
-import json
 import configparser
 from datetime import datetime
 import locale
@@ -110,7 +109,7 @@ class TearOffCalendarData:
         cal_data['sun_info'] = {}
         cal_data['sun_info']['sunrise'] = srn if srp < btoday else srp
         cal_data['sun_info']['sunset'] = ssn if ssn < etoday else ssp
-        cal_data['sun_info']['daylength'] = cal_data['sunset'] - cal_data['sunrise']
+        cal_data['sun_info']['daylength'] = cal_data['sun_info']['sunset'] - cal_data['sun_info']['sunrise']
 
         moon = ephem.Moon()
         moon.compute(home)
