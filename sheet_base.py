@@ -272,7 +272,7 @@ class TearOffCalendarBaseSheet:
         cons_w, cons_h = draw.textsize(cons, font=cons_font)
         draw.text(((self.page_w-cons_w)/2, y), cons, font=cons_font)
 
-    def draw_forecast(self, page, draw, forecast, y, margin, part_h, fontname, fontsize, font_size_redutor, frame = False):
+    def draw_forecast(self, page, draw, forecast, y, margin, part_h, fontname, fontsize, font_size_reductor, frame = False):
         '''
             Draw weather forecast
         '''
@@ -293,11 +293,11 @@ class TearOffCalendarBaseSheet:
         temp_font_size = []
         for part in forecast['order']:
             if len(forecast['parts'][part]['temp']) == 10:
-                temp_font_size.append(fontsize-font_size_redutor[0])
+                temp_font_size.append(fontsize-font_size_reductor[0])
             elif len(forecast['parts'][part]['temp']) == 9:
-                temp_font_size.append(fontsize-font_size_redutor[1])
+                temp_font_size.append(fontsize-font_size_reductor[1])
             elif len(forecast['parts'][part]['temp']) == 8:
-                temp_font_size.append(fontsize-font_size_redutor[2])
+                temp_font_size.append(fontsize-font_size_reductor[2])
             else:
                 temp_font_size.append(fontsize)
         temp_font_size = min(temp_font_size)
