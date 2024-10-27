@@ -70,8 +70,8 @@ class TearOffCalendarBaseSheet:
         self.screen = True
         if hasattr(self, 'hw_screen') and len(self.hw_screen) == 2:
             try:
-                self.epd = __import__('waveshare_epd', fromlist=self.hw_screen[0:1]).EPD()
-                self.epd_b = __import__('waveshare_epd', fromlist=self.hw_screen[1:2]).EPD()
+                self.epd = getattr(__import__('waveshare_epd', fromlist=self.hw_screen[0:1]), ''.join(self.hw_screen[0:1])).EPD()
+                self.epd_b = getattr(__import__('waveshare_epd', fromlist=self.hw_screen[1:2]), ''.join(self.hw_screen[1:2])).EPD()
             except ImportError:
                 self.screen = False
                 logger.debug('There is no HW screen to draw on. Image will be saved to ' + self.image_path)

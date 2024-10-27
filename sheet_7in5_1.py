@@ -4,11 +4,6 @@
 import os
 import logging
 from sheet_base import TearOffCalendarBaseSheet, DeltaTemplate
-screen = True
-try:
-    from waveshare_epd import epd7in5b_V2
-except ImportError:
-    screen = False
 
 logger = logging.getLogger(__name__)
 
