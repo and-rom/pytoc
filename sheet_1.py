@@ -30,7 +30,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         self.draw_moon_info(self.draw[self.BLACK], self.cal_data['moon_info'], 'Заход\n{}\nВосход\n{}\n{}\n{}-й\nдень', 274, 89, 'moon_phases.ttf', 18, 'r-10', 110, 'Cuprum-Regular.ttf', 16)
         self.draw_constellation(self.draw[self.BLACK], self.cal_data['moon_info']['constellation'], 248, 'Cuprum-Italic.ttf', 16)
         if self.cal_data['forecast']:
-            self.draw_forecast(self.pages[self.BLACK], self.draw[self.BLACK], self.cal_data['forecast'], 272, 38, (20, 43, 20), 'Cuprum-Regular.ttf', 18, (3, 2, 1))
+            self.draw_forecast(self.pages[self.BLACK], self.draw[self.BLACK], self.cal_data['forecast'], 272, 38, (20, 43, 20), 'Cuprum-Regular.ttf', 18)
         else:
             self.draw_no_conn(self.pages[self.BLACK], 272)
         self.draw_location_name(self.draw[self.BLACK], self.cal_data['location_name'], 'c', 15, 'Cuprum-Regular.ttf', 12)

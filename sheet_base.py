@@ -100,6 +100,17 @@ class TearOffCalendarBaseSheet:
         else:
             raise ValueError
 
+    def adjust_fontsize_by_width(self, draw, width, fontname, fontsize, text):
+        while True:
+            print(text, fontsize)
+            font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
+            text_w, text_h = draw.textsize(text, font=font)
+            if text_w > width:
+                fontsize -= 1
+            else:
+                break
+        return fontsize
+
     def draw(self, cal_data = None):
         if cal_data is None:
             from data import TearOffCalendarData
@@ -272,7 +283,7 @@ class TearOffCalendarBaseSheet:
         cons_w, cons_h = draw.textsize(cons, font=cons_font)
         draw.text(((self.page_w-cons_w)/2, y), cons, font=cons_font)
 
-    def draw_forecast(self, page, draw, forecast, y, margin, part_h, fontname, fontsize, font_size_reductor, frame = False):
+    def draw_forecast(self, page, draw, forecast, y, margin, part_h, fontname, fontsize, frame = False):
         '''
             Draw weather forecast
         '''
@@ -292,14 +303,7 @@ class TearOffCalendarBaseSheet:
 
         temp_font_size = []
         for part in forecast['order']:
-            if len(forecast['parts'][part]['temp']) == 10:
-                temp_font_size.append(fontsize-font_size_reductor[0])
-            elif len(forecast['parts'][part]['temp']) == 9:
-                temp_font_size.append(fontsize-font_size_reductor[1])
-            elif len(forecast['parts'][part]['temp']) == 8:
-                temp_font_size.append(fontsize-font_size_reductor[2])
-            else:
-                temp_font_size.append(fontsize)
+            temp_font_size.append(self.adjust_fontsize_by_width(draw, part_w, fontname, fontsize, forecast['parts'][part]['temp']))
         temp_font_size = min(temp_font_size)
 
         day_part_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
