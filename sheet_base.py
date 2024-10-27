@@ -4,14 +4,9 @@
 import os
 import logging
 from string import Template
-from PIL import Image, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 import textwrap
 import time
-screen = True
-try:
-    from waveshare_epd import epd4in2bc, epd4in2
-except ImportError:
-    screen = False
 
 logger = logging.getLogger(__name__)
 
@@ -72,17 +67,27 @@ class TearOffCalendarBaseSheet:
         self.icons_path = os.path.join(p, 'icons')
         self.image_path = image_path
 
-        if screen:
-            self.epd = epd4in2bc.EPD()
-            self.epd_b = epd4in2.EPD()
+        self.screen = True
+        if hasattr(self, 'hw_screen') and len(self.hw_screen) == 2:
+            try:
+                self.epd = __import__('waveshare_epd', fromlist=self.hw_screen[0:1]).EPD()
+                self.epd_b = __import__('waveshare_epd', fromlist=self.hw_screen[1:2]).EPD()
+            except ImportError:
+                self.screen = False
+                logger.debug('There is no HW screen to draw on. Image will be saved to ' + self.image_path)
+        else:
+            self.screen = False
+
+        if self.screen:
             self.page_w = self.epd.height
             self.page_h = self.epd.width
         else:
             if self.image_path == '':
-                logger.error('There is no screen to draw on and image path not specified')
+                logger.error('There is no HW screen to draw on and image path not specified')
                 return
-            self.page_w = 300
-            self.page_h = 400
+            if not (hasattr(self, 'page_w') or hasattr(self, 'page_h')):
+                self.page_w = 300
+                self.page_h = 400
 
     @property
     def backpage_name(self):
@@ -94,6 +99,28 @@ class TearOffCalendarBaseSheet:
             self.__backpage_name = s
         else:
             raise ValueError
+
+    def draw(self, cal_data = None):
+        if cal_data is None:
+            from data import TearOffCalendarData
+            cal = TearOffCalendarData()
+            self.cal_data = cal.get_data()
+        else:
+            self.cal_data = cal_data
+
+        self.pages = (
+                    Image.new('1', (self.page_w, self.page_h), 255),
+                    Image.new('1', (self.page_w, self.page_h), 255)
+                )
+        self.draw = (
+                    ImageDraw.Draw(self.pages[self.BLACK]),
+                    ImageDraw.Draw(self.pages[self.RED])
+                )
+
+        # Where to draw parts that may be red.
+        self.i = 0 if not cal_data['dayoff'] or not self.screen else 1
+        self.j = 0 if not cal_data['holiday_dayoff'] or not self.screen else 1
+        logger.debug('Red goes on black for day: ' + 'yes' if self.i == 0 else 'no')
 
     def draw_decor_corners(self, page, margin):
         '''
@@ -324,6 +351,19 @@ class TearOffCalendarBaseSheet:
         if str(y).startswith('d-'):
             y = self.page_h - backpage_name_h - int(y.split('-')[1])
         draw.text((x, y), backpage_name, font=backpage_name_font)
+
+    def save(self):
+        '''
+            Save images
+        '''
+
+        if self.screen:
+            self.pages[self.BLACK].save(os.path.join(self.image_path, 'sheet_b.png'))
+            self.pages[self.RED].save(os.path.join(self.image_path, 'sheet_r.png'))
+            logger.info('Images for EPD saved to files.')
+        else:
+            self.pages[self.BLACK].save(os.path.join(self.image_path, 'sheet.png'))
+            logger.info('There is no EPD. Image saved to file.')
 
     def display_front(self):
         if screen:
