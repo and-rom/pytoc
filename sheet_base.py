@@ -128,8 +128,8 @@ class TearOffCalendarBaseSheet:
                 )
 
         # Where to draw parts that may be red.
-        self.i = 0 if not cal_data['dayoff'] or not self.screen else 1
-        self.j = 0 if not cal_data['holiday_dayoff'] or not self.screen else 1
+        self.i = 0 if not self.cal_data['dayoff'] or not self.screen else 1
+        self.j = 0 if not self.cal_data['holiday_dayoff'] or not self.screen else 1
         logger.debug('Red goes on black for day: ' + ('yes' if self.i == 0 else 'no'))
 
     def draw_decor_corners(self, page, margin):
@@ -395,7 +395,7 @@ class TearOffCalendarBaseSheet:
             logger.info('There is no EPD. You may open saved image from file.')
 
     def display_back(self):
-        if screen:
+        if self.screen:
             try:
                 page = Image.open(os.path.join(self.image_path, 'backsheet.png'))
 
