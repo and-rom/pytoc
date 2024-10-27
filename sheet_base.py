@@ -102,7 +102,6 @@ class TearOffCalendarBaseSheet:
 
     def adjust_fontsize_by_width(self, draw, width, fontname, fontsize, text):
         while True:
-            print(text, fontsize)
             font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
             text_w, text_h = draw.textsize(text, font=font)
             if text_w > width:
@@ -131,7 +130,7 @@ class TearOffCalendarBaseSheet:
         # Where to draw parts that may be red.
         self.i = 0 if not cal_data['dayoff'] or not self.screen else 1
         self.j = 0 if not cal_data['holiday_dayoff'] or not self.screen else 1
-        logger.debug('Red goes on black for day: ' + 'yes' if self.i == 0 else 'no')
+        logger.debug('Red goes on black for day: ' + ('yes' if self.i == 0 else 'no'))
 
     def draw_decor_corners(self, page, margin):
         '''
