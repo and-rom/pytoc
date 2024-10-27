@@ -225,12 +225,12 @@ class TearOffCalendarBaseSheet:
             col += 5
             holiday_title_arr = textwrap.wrap(holiday_title, width=col)
         holiday_title = '\n'.join(holiday_title_arr)
-        holiday_font_size = fontsize
-        holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), holiday_font_size)
+        holiday_fontsize = fontsize
+        holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), holiday_fontsize)
         holiday_w, holiday_h = draw.textsize(holiday_title, font=holiday_font)
         while self.page_w - holiday_w < 80 or holiday_h > 45:
-            holiday_font_size -=2
-            holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), holiday_font_size)
+            holiday_fontsize -=2
+            holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), holiday_fontsize)
             holiday_w, holiday_h = draw.textsize(holiday_title, font=holiday_font)
         draw.text(((self.page_w-holiday_w)/2, y-holiday_h/2), holiday_title, font=holiday_font, align='center')
 
@@ -301,13 +301,13 @@ class TearOffCalendarBaseSheet:
             draw.line((margin, y + part_h[0], self.page_w - margin, y + part_h[0]), fill = 0)
             draw.line((margin, y + part_h[0] + part_h[1], self.page_w - margin, y + part_h[0] + part_h[1]), fill = 0)
 
-        temp_font_size = []
+        temp_fontsize = []
         for part in forecast['order']:
-            temp_font_size.append(self.adjust_fontsize_by_width(draw, part_w, fontname, fontsize, forecast['parts'][part]['temp']))
-        temp_font_size = min(temp_font_size)
+            temp_fontsize.append(self.adjust_fontsize_by_width(draw, part_w, fontname, fontsize, forecast['parts'][part]['temp']))
+        temp_fontsize = min(temp_fontsize)
 
         day_part_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
-        temp_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), temp_font_size)
+        temp_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), temp_fontsize)
         pos = 0
         for part in forecast['order']:
             day_part = self.DAY_PARTS[part]
