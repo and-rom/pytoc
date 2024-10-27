@@ -9,7 +9,7 @@ from backpage.xkcd import XKCD
 
 parser = argparse.ArgumentParser(prog='pytoc', description='Python Tear-Off Calendar', usage='%(prog)s [options]')
 
-parser.add_argument('-t', '--template', dest='template', help='name of calendar sheet template', default='1')
+parser.add_argument('-t', '--template', dest='template', help='name of calendar sheet template', required=True)
 parser.add_argument('-i', '--image', dest='image', help='path for images', default='.')
 parser.add_argument('-b', '--back', dest='back', help='display back image on screen', action='store_true')
 parser.add_argument('-f', '--front', dest='front', help='display front image on screen', action='store_true')
