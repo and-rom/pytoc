@@ -207,7 +207,7 @@ class TearOffCalendarBaseSheet:
             x = self.page_w - weekday_w - int(x.split('-')[1])
         draw.text((x, y), weekday, font=weekday_font)
 
-    def draw_holiday_title(self, draw, holiday_title, holiday_type, y, fontname, fontsize):
+    def draw_holiday_title(self, draw, holiday_title, holiday_type, y, margin, max_height, fontname, fontsize, frame = False):
         '''
             Draw holiday title
         '''
@@ -227,11 +227,14 @@ class TearOffCalendarBaseSheet:
         holiday_fontsize = fontsize
         holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), holiday_fontsize)
         holiday_w, holiday_h = draw.textsize(holiday_title, font=holiday_font)
-        while self.page_w - holiday_w < 80 or holiday_h > 45:
+        while self.page_w - holiday_w < margin*2 or holiday_h > max_height:
             holiday_fontsize -=2
             holiday_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), holiday_fontsize)
             holiday_w, holiday_h = draw.textsize(holiday_title, font=holiday_font)
         draw.text(((self.page_w-holiday_w)/2, y-holiday_h/2), holiday_title, font=holiday_font, align='center')
+
+        if frame:
+            draw.rectangle((margin, y - holiday_h/2, self.page_w - margin, y + holiday_h/2), outline = 0)
 
     def draw_sun_info(self, draw, sun_info, sun_info_fmt, icon_x, icon_y, icon_fontname, icon_fontsize, x, y, fontname, fontsize):
         '''

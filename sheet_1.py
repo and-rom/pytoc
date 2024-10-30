@@ -25,7 +25,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
         self.draw_weekday(self.draw[self.i], self.cal_data['weekday'], 'c', 220, 'PlayfairDisplay-Bold.ttf', 22)
         if self.cal_data['holiday']:
             logger.debug('Red goes on black for holiday: ' + 'yes' if self.j == self.BLACK else 'no')
-            self.draw_holiday_title(self.draw[self.j], self.cal_data['holiday_title'], self.cal_data['holiday_type'], 55, 'Cuprum-Bold.ttf', 22)
+            self.draw_holiday_title(self.draw[self.j], self.cal_data['holiday_title'], self.cal_data['holiday_type'], 55, 40, 45, 'Cuprum-Bold.ttf', 22)
         self.draw_sun_info(self.draw[self.BLACK], self.cal_data['sun_info'], 'Восход\n{}\nЗаход\n{}\nДолгота\nдня\n{}', 9, 86, 'Cuprum-Regular.ttf', 22, 10, 110, 'Cuprum-Regular.ttf', 16)
         self.draw_moon_info(self.draw[self.BLACK], self.cal_data['moon_info'], 'Заход\n{}\nВосход\n{}\n{}\n{}-й\nдень', 274, 89, 'moon_phases.ttf', 18, 'r-10', 110, 'Cuprum-Regular.ttf', 16)
         self.draw_constellation(self.draw[self.BLACK], self.cal_data['moon_info']['constellation'], 248, 'Cuprum-Italic.ttf', 16)
