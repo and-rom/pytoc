@@ -88,15 +88,18 @@ class TearOffCalendarData:
         cal_data['holiday_dayoff'] = False
         year = t.strftime('%Y')
 
-        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'misc', 'holidays_' + year + '.json'), 'rb') as f:
-            data = json.load(f)
-            if cd[0] in data["daysOff"][cd[1]-1]:
-                cal_data['dayoff'] = True
-            if data['holidays'][cd[1]-1][cd[0]-1]['title'] != '':
-                cal_data['holiday'] = True
-                cal_data['holiday_title'] = data['holidays'][cd[1]-1][cd[0]-1]['title']
-                cal_data['holiday_dayoff'] = bool(data['holidays'][cd[1]-1][cd[0]-1]['dayoff'])
-                cal_data['holiday_type'] = data['holidays'][cd[1]-1][cd[0]-1]['type']
+        try:
+            with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'misc', 'holidays_' + year + '.json'), 'rb') as f:
+                data = json.load(f)
+                if cd[0] in data["daysOff"][cd[1]-1]:
+                    cal_data['dayoff'] = True
+                if data['holidays'][cd[1]-1][cd[0]-1]['title'] != '':
+                    cal_data['holiday'] = True
+                    cal_data['holiday_title'] = data['holidays'][cd[1]-1][cd[0]-1]['title']
+                    cal_data['holiday_dayoff'] = bool(data['holidays'][cd[1]-1][cd[0]-1]['dayoff'])
+                    cal_data['holiday_type'] = data['holidays'][cd[1]-1][cd[0]-1]['type']
+        except FileNotFoundError:
+            pass
 
         home = ephem.Observer()
         home.lat, home.lon = cal_data['latitude'], cal_data['longitude']
