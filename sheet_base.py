@@ -159,7 +159,8 @@ class TearOffCalendarBaseSheet:
         draw.line((margin, y - inner_margins[2], self.page_w - margin, y - inner_margins[2]), fill = 0, width = thickness[2])
 
     def draw_wifi(self, page, wifi_qlt, x, y):
-        wifi = Image.open(os.path.join(self.icons_path, 'wifi', 'wifi_' + str(wifi_qlt) + '.png'), mode='r')
+        wifi_qlt = str(wifi_qlt) if wifi_qlt else 'off'
+        wifi = Image.open(os.path.join(self.icons_path, 'wifi', 'wifi_' + wifi_qlt + '.png'), mode='r')
         page.paste(wifi, (x, y), wifi)
 
     def draw_battery(self, page, battery, x, y):

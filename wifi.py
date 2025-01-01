@@ -3,11 +3,10 @@
 
 import subprocess
 
-def get_quality():
-    interface = "wlan0"
+def get_quality(device):
     keyword = "Link Quality="
 
-    proc = subprocess.Popen(["iwconfig", interface],stdout=subprocess.PIPE, universal_newlines=True)
+    proc = subprocess.Popen(["iwconfig", device],stdout=subprocess.PIPE, universal_newlines=True)
     out, err = proc.communicate()
 
     for line in out.split('\n'):
@@ -16,6 +15,8 @@ def get_quality():
         if line[:length] == keyword:
             quality = line[length:].split()[0].split('/')
             return int(round(float(quality[0]) / float(quality[1]) * 100))
+        else:
+            return None
 
 if __name__=='__main__':
-    print(get_quality())
+    print(get_quality('wlan0'))

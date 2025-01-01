@@ -65,12 +65,14 @@ class TearOffCalendarData:
             cal_data['longitude'] = config[cal_data['location']]['Longitude']
             cal_data['location_name'] = config[cal_data['location']]['Name']
             weather_service = config['Common']['WeatherService']
+            wifi_device = config['Common']['WiFiDevice']
         else:
             cal_data['location'] = 'Moscow'
             cal_data['latitude'] = 55.755864
             cal_data['longitude'] = 37.617698
             cal_data['location_name'] = 'Москва'
             weather_service = None
+            wifi_device = None
 
         today = datetime.today()
         btoday = today.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -131,7 +133,11 @@ class TearOffCalendarData:
         else:
             cal_data['forecast'] = {}
 
-        cal_data['wifi_qlt'] = round(map_to_range(wifi.get_quality(), 0, 100, 0, 4))
+        if wifi_device:
+            wifi_qlt = wifi.get_quality('wlan0')
+            cal_data['wifi_qlt'] = round(map_to_range(wifi_qlt, 0, 100, 0, 4)) if wifi_qlt else None
+        else:
+            cal_data['wifi_qlt'] = None
 
         cal_data['battery'] = {}
         try:
