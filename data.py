@@ -10,7 +10,6 @@ import ephem
 from owm import OWM
 from gm import GM
 import wifi
-import ina219
 import json
 
 logger = logging.getLogger(__name__)
@@ -134,18 +133,23 @@ class TearOffCalendarData:
 
         cal_data['wifi_qlt'] = round(map_to_range(wifi.get_quality(), 0, 100, 0, 4))
 
-        ups = ina219.INA219(addr=0x43)
         cal_data['battery'] = {}
-        cal_data['battery']['level'] = round(ups.getPercent())//10*10
-        cal_data['battery']['charging'] = ups.getCharging()
-        if cal_data['battery']['level'] < 20:
-            cal_data['battery']['level'] = 20
-        elif cal_data['battery']['level'] == 40:
-            cal_data['battery']['level'] = 30
-        elif cal_data['battery']['level'] == 70:
-            cal_data['battery']['level'] = 60
-        elif cal_data['battery']['level'] >= 90 and cal_data['battery']['charging'] == 1:
-            cal_data['battery']['level'] = 100
+        try:
+            import ina219
+            ups = ina219.INA219(addr=0x43)
+            cal_data['battery']['level'] = round(ups.getPercent())//10*10
+            cal_data['battery']['charging'] = ups.getCharging()
+            if cal_data['battery']['level'] < 20:
+                cal_data['battery']['level'] = 20
+            elif cal_data['battery']['level'] == 40:
+                cal_data['battery']['level'] = 30
+            elif cal_data['battery']['level'] == 70:
+                cal_data['battery']['level'] = 60
+            elif cal_data['battery']['level'] >= 90 and cal_data['battery']['charging'] == 1:
+                cal_data['battery']['level'] = 100
+        except ImportError:
+            cal_data['battery']['level'] = 'unknown'
+            cal_data['battery']['charging'] = 0
 
         logger.info('Calendar data collected')
 
