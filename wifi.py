@@ -15,8 +15,8 @@ def get_quality(device):
         if line[:length] == keyword:
             quality = line[length:].split()[0].split('/')
             return int(round(float(quality[0]) / float(quality[1]) * 100))
-        else:
-            return None
+
+    return None
 
 if __name__=='__main__':
     print(get_quality('wlan0'))
