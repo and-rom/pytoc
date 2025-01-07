@@ -1,24 +1,39 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os
+import os, sys
 import csv
 import json
-from pprint import pprint
+from datetime import datetime
 
-p = os.path.dirname(os.path.realpath(__file__))
+if len(sys.argv) > 1
+    year = sys.argv[1]
+else:
+    year = datetime.today().strftime('%Y')
 
 holidays = []
 
-with open(os.path.join(p, 'misc', 'cal.csv'), 'r') as csvf:
+with open('holidays_' + year + '.csv', 'r') as csvf:
     csv_reader = csv.DictReader(csvf, delimiter=';')
     for row in csv_reader:
         if len(holidays) <= int(row['month'])-1:
             holidays.insert(int(row['month'])-1, [])
-        holidays[int(row['month'])-1].insert(int(row['day'])-1, {'title': row['title'], 'dayoff': row['dayoff'] == 'true', 'type': row['type']})
+        if row['X'] != '?':
+            holiday = {
+                'title': row['title'],
+                'dayoff': row['dayoff'] == 'true',
+                'type': row['type']
+            }
+        else:
+            holiday = {
+                'title': '',
+                'dayoff': False,
+                'type': ''
+            }
+        holidays[int(row['month'])-1].insert(int(row['day'])-1, holiday)
     csvf.close()
 
-with open(os.path.join(p, 'misc', 'cal.json'), 'r+') as jsonf:
+with open('holidays_' + year + '.json', 'r+') as jsonf:
     json_data = json.load(jsonf)
     json_data['holidays'] = holidays
     jsonf.seek(0)
