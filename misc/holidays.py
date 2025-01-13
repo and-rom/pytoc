@@ -6,7 +6,7 @@ import csv
 import json
 from datetime import datetime
 
-if len(sys.argv) > 1
+if len(sys.argv) > 1:
     year = sys.argv[1]
 else:
     year = datetime.today().strftime('%Y')
