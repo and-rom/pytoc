@@ -35,7 +35,7 @@ with open(f'holidays_{year}.csv', 'r') as csvf:
         holidays[m].insert(d, holiday)
     csvf.close()
 
-with open(f'holidays_{year}.csv', 'r+') as jsonf:
+with open(f'holidays_{year}.json', 'r+') as jsonf:
     json_data = json.load(jsonf)
     json_data['holidays'] = holidays
     jsonf.seek(0)
