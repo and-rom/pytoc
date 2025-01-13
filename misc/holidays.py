@@ -13,11 +13,13 @@ else:
 
 holidays = []
 
-with open('holidays_' + year + '.csv', 'r') as csvf:
+with open(f'holidays_{year}.csv', 'r') as csvf:
     csv_reader = csv.DictReader(csvf, delimiter=';')
     for row in csv_reader:
-        if len(holidays) <= int(row['month'])-1:
-            holidays.insert(int(row['month'])-1, [])
+        m = int(row['month']) - 1
+        d = int(row['day']) - 1
+        if len(holidays) < m + 1:
+            holidays.insert(m, [])
         if row['X'] != '?':
             holiday = {
                 'title': row['title'],
@@ -30,10 +32,10 @@ with open('holidays_' + year + '.csv', 'r') as csvf:
                 'dayoff': False,
                 'type': ''
             }
-        holidays[int(row['month'])-1].insert(int(row['day'])-1, holiday)
+        holidays[m].insert(d, holiday)
     csvf.close()
 
-with open('holidays_' + year + '.json', 'r+') as jsonf:
+with open(f'holidays_{year}.csv', 'r+') as jsonf:
     json_data = json.load(jsonf)
     json_data['holidays'] = holidays
     jsonf.seek(0)
