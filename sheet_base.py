@@ -288,13 +288,13 @@ class TearOffCalendarBaseSheet:
         cons_w, cons_h = draw.textsize(cons, font=cons_font)
         draw.text(((self.page_w-cons_w)/2, y), cons, font=cons_font)
 
-    def draw_forecast(self, page, draw, forecast, y, margin, part_h, fontname, fontsize, frame = False):
+    def draw_forecast(self, page, draw, forecast, y, margin, parts_h, fontname, fontsize, frame = False):
         '''
             Draw weather forecast
         '''
 
         part_w = int((self.page_w - margin * 2) / 4)
-        height = sum(part_h)
+        height = sum(parts_h)
 
         if frame:
             draw.rectangle((margin, y, self.page_w - margin, y + height), outline = 0)
@@ -303,8 +303,10 @@ class TearOffCalendarBaseSheet:
             draw.line((margin + 2 * part_w, y, margin + 2 * part_w, y + height), fill = 0)
             draw.line((margin + 3 * part_w, y, margin + 3 * part_w, y + height), fill = 0)
 
-            draw.line((margin, y + part_h[0], self.page_w - margin, y + part_h[0]), fill = 0)
-            draw.line((margin, y + part_h[0] + part_h[1], self.page_w - margin, y + part_h[0] + part_h[1]), fill = 0)
+            part_y = y
+            for part_h in parts_h:
+                part_y += part_h
+                draw.line((margin, part_y, self.page_w - margin, part_y), fill = 0)
 
         temp_fontsize = []
         for part in forecast['order']:
@@ -313,17 +315,40 @@ class TearOffCalendarBaseSheet:
 
         day_part_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), fontsize)
         temp_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), temp_fontsize)
+
+        if len(parts_h) >= 4:
+            wind_icon = Image.open(os.path.join(self.clip_path, 'wind_direction.png'), mode='r')
+            wind_speed_fontsize = []
+            for part in forecast['order']:
+                wind_speed_fontsize.append(self.adjust_fontsize_by_width(draw, part_w - wind_icon.width, fontname, int(fontsize*0.85), ' {} м/с'.format(forecast['parts'][part]['wind_speed'])))
+            wind_speed_fontsize = min(wind_speed_fontsize)
+            wind_speed_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), wind_speed_fontsize)
+
         pos = 0
         for part in forecast['order']:
             day_part = self.DAY_PARTS[part]
             day_part_w, day_part_h = draw.textsize(day_part, font=day_part_font)
             draw.text(((part_w/2 + margin)-day_part_w/2+pos, y-1), day_part, font=day_part_font, fill='black')
-            temp = forecast['parts'][part]['temp']
-            temp_w, temp_h = draw.textsize(temp, font=temp_font)
-            draw.text((int((part_w/2 + margin)-temp_w/2+pos), int(y + part_h[0] + part_h[1] + (part_h[2] - temp_h)/2)), temp, font=temp_font, fill='black')
 
             icon = Image.open(os.path.join(self.icons_path, 'weather', forecast['parts'][part]['icon']+'.png'), mode='r')
-            page.paste(icon, (int(margin + (part_w - icon.width) / 2 + pos), int(y + part_h[0] + (part_h[1]-icon.height)/2+0.5)), icon)
+            icon_x = margin + part_w/2 + pos - icon.width/2
+            icon_y = y + parts_h[0] + (parts_h[1] - icon.height)/2 + 0.5
+            page.paste(icon, (int(icon_x), int(icon_y)), icon)
+
+            temp = forecast['parts'][part]['temp']
+            temp_w, temp_h = draw.textsize(temp, font=temp_font)
+            draw.text((int((part_w/2 + margin)-temp_w/2+pos), int(y + parts_h[0] + parts_h[1] + (parts_h[2] - temp_h)/2)), temp, font=temp_font, fill='black')
+
+            if len(parts_h) >= 4:
+                _wind_icon = wind_icon.rotate(forecast['parts'][part]['wind_deg'])
+                wind_speed = ' {} м/с'.format(forecast['parts'][part]['wind_speed'])
+                wind_speed_w, wind_speed_h = draw.textsize(wind_speed, font=wind_speed_font)
+                wind_icon_x = margin + part_w/2 + pos - (_wind_icon.width + wind_speed_w)/2
+                wind_icon_y = y + parts_h[0] + parts_h[1] + parts_h[2] + (parts_h[3] - _wind_icon.height)/2
+                wind_speed_x = wind_icon_x + _wind_icon.width
+                wind_speed_y = y + parts_h[0] + parts_h[1] + parts_h[2] + (parts_h[3] - wind_speed_h) / 2
+                page.paste(_wind_icon, (int(wind_icon_x), int(wind_icon_y)), _wind_icon)
+                draw.text((int(wind_speed_x), int(wind_speed_y)), wind_speed, font=wind_speed_font, fill='black')
 
             pos += part_w
 
