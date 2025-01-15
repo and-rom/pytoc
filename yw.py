@@ -103,7 +103,10 @@ class YW:
                         summary['parts'][s_key][key] = '{}°..{}°'.format(self.__add_sign(min_t), self.__add_sign(max_t))
                     else:
                         summary['parts'][s_key][key] = '{}°'.format(self.__add_sign(round(self.__average(summary['parts'][s_key][key]))))
-                elif key in ('humidity', 'pressure', 'wind_speed', 'wind_deg'):
+                elif key == 'wind_speed':
+                    tmp = self.__average(summary['parts'][s_key][key])
+                    summary['parts'][s_key][key] = '{}'.format(round(tmp)) if tmp is not None else tmp
+                elif key in ('humidity', 'pressure', 'wind_deg'):
                     tmp = self.__average(summary['parts'][s_key][key])
                     summary['parts'][s_key][key] = round(tmp) if tmp is not None else tmp
                 else:

@@ -95,7 +95,9 @@ class OWM:
                         summary['parts'][s_key][key] = '{}°'.format(self.__add_sign(round(self.__average(summary['parts'][s_key][key]))))
                 elif key == 'pressure':
                     summary['parts'][s_key][key] = round(self.__average(summary['parts'][s_key][key])/1.333)
-                elif key in ('humidity' 'wind_speed', 'wind_deg'):
+                elif key == 'wind_speed':
+                    summary['parts'][s_key][key] = '{}'.format(round(self.__average(summary['parts'][s_key][key])))
+                elif key in ('humidity', 'wind_deg'):
                     summary['parts'][s_key][key] = round(self.__average(summary['parts'][s_key][key]))
                 else:
                     summary['parts'][s_key][key] = self.__most_common(summary['parts'][s_key][key])
