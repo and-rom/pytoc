@@ -149,14 +149,16 @@ class TearOffCalendarBaseSheet:
         corner = corner.rotate(90)
         page.paste(corner, (self.page_w - corner.width - margin, self.page_h - corner.height - margin), corner)
 
-    def draw_decor_three_hlines(self, draw, y, margin, inner_margins, thickness):
+    def draw_decor_three_hlines(self, draw, y, margin, thickness, inner_margins):
         '''
             Draw lines
         '''
 
-        draw.line((margin, y - inner_margins[0], self.page_w - margin, y - inner_margins[0]), fill = 0, width = thickness[0])
-        draw.line((margin, y - inner_margins[1], self.page_w - margin, y - inner_margins[1]), fill = 0, width = thickness[1])
-        draw.line((margin, y - inner_margins[2], self.page_w - margin, y - inner_margins[2]), fill = 0, width = thickness[2])
+        draw.line((margin, y, self.page_w - margin, y), fill = 0, width = thickness[0])
+        y += inner_margins[0] + thickness[0]
+        draw.line((margin, y, self.page_w - margin, y), fill = 0, width = thickness[1])
+        y += inner_margins[1] + thickness[1]
+        draw.line((margin, y, self.page_w - margin, y), fill = 0, width = thickness[2])
 
     def draw_wifi(self, page, wifi_qlt, x, y):
         wifi_qlt = str(wifi_qlt) if wifi_qlt else 'off'

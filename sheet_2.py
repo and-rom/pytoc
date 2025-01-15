@@ -17,7 +17,7 @@ class TearOffCalendarSheet(TearOffCalendarBaseSheet):
     def draw(self, cal_data = None):
         super().draw(cal_data)
 
-        self.draw_decor_three_hlines(self.draw[self.j], 210, 10, (8, 5, 2), (3, 2, 1))
+        self.draw_decor_three_hlines(self.draw[self.j], 202, 10, (3, 2, 1), (0, 1))
         self.draw_wifi(self.pages[self.BLACK], self.cal_data['wifi_qlt'], 1, 2)
         self.draw_battery(self.pages[self.BLACK], self.cal_data['battery'], 'r-1', 2)
         self.draw_day(self.draw[self.i], self.cal_data['day'], 235, 'Molot.otf', 120)
