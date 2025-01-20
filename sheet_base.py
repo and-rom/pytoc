@@ -317,10 +317,11 @@ class TearOffCalendarBaseSheet:
         temp_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), temp_fontsize)
 
         if len(parts_h) >= 4:
+            wind_speed = ' {} м/с'.format(forecast['parts'][part]['wind_speed'])
             wind_icon = Image.open(os.path.join(self.clip_path, 'wind_direction.png'), mode='r')
             wind_speed_fontsize = []
             for part in forecast['order']:
-                wind_speed_fontsize.append(self.adjust_fontsize_by_width(draw, part_w - wind_icon.width, fontname, int(fontsize*0.85), ' {} м/с'.format(forecast['parts'][part]['wind_speed'])))
+                wind_speed_fontsize.append(self.adjust_fontsize_by_width(draw, part_w - wind_icon.width, fontname, int(fontsize*0.85), wind_speed))
             wind_speed_fontsize = min(wind_speed_fontsize)
             wind_speed_font = ImageFont.truetype(os.path.join(self.fonts_path, fontname), wind_speed_fontsize)
 
@@ -344,8 +345,7 @@ class TearOffCalendarBaseSheet:
             draw.text((int(temp_x), int(temp_y)), temp, font=temp_font, fill='black')
 
             if len(parts_h) >= 4:
-                _wind_icon = wind_icon.rotate(forecast['parts'][part]['wind_deg'])
-                wind_speed = ' {} м/с'.format(forecast['parts'][part]['wind_speed'])
+                _wind_icon = wind_icon.rotate((forecast['parts'][part]['wind_deg'] +180) % 360)
                 wind_speed_w, wind_speed_h = draw.textsize(wind_speed, font=wind_speed_font)
                 wind_icon_x = part_center - (_wind_icon.width + wind_speed_w)/2
                 wind_icon_y = y + sum(parts_h[:3]) + (parts_h[3] - _wind_icon.height)/2
