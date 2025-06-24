@@ -28,7 +28,7 @@ if not args.back:
         if "7in5" in args.template:
             backpages = [Dummy]
         else:
-            backpages = [XKCD, Dummy]
+            backpages = [Dummy]
         backsheet = random.choice(backpages)(w = sheet.page_w, h = sheet.page_h, image_path = args.image)
 
         sheet.backpage_name = backsheet.name
