@@ -293,7 +293,7 @@
       {
         "dayoff": false,
         "title": "День деда Мороза и Снегурочки",
-        "type": "slav"
+        "type": "mem"
       },
       {
         "dayoff": false,
@@ -420,7 +420,7 @@
       {
         "dayoff": false,
         "title": "Великий Велесов день",
-        "type": "slav"
+        "type": "mem"
       },
       {
         "dayoff": false,
@@ -541,8 +541,8 @@
       },
       {
         "dayoff": false,
-        "title": "День Земли",
-        "type": "int"
+        "title": "День весеннего равноденствия",
+        "type": "day"
       },
       {
         "dayoff": false,
@@ -613,8 +613,8 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День вечеринки",
+        "type": "int"
       },
       {
         "dayoff": false,
@@ -760,28 +760,28 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День тунца",
+        "type": "un"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День кондитера",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День Звездных войн",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День шифровальщика",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День святого Георгия Победоносца",
+        "type": "rel"
       },
       {
         "dayoff": false,
@@ -790,12 +790,17 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День Красного Креста и Полумесяца",
+        "type": "int"
       },
       {
         "dayoff": true,
         "title": "День Победы",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День чистой комнаты",
         "type": "int"
       },
       {
@@ -805,169 +810,615 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День охраны здоровья растений",
+        "type": "un"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День Черноморского флота",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День фрилансера",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День климата",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День света",
+        "type": "un"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День электросвязи",
+        "type": "un"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День Балтийского флота",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День фармацевтического работника",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День Волги",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День полярника",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День бассейновой индустрии",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День черепахи",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День кадровика",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День филолога",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День российского предпринимательства",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День библиотек",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День пограничника",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День сварщика",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День окрошки",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День российской адвокатуры",
+        "type": "prof"
       }
     ],
     [
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День Северного флота",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День здорового питания",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День велосипеда",
+        "type": "un"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День крановщика",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "Днем эколога",
+        "type": "un"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "Пушкинский день",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День ресторатора",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День социального работника",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День друзей",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День мороженого",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День игры",
+        "type": "un"
       },
       {
         "dayoff": true,
         "title": "День России",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День пивовара",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "Банный день",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День ветра",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День защиты детей Африки",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День русского кваса",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День суши",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День бабочек",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День жонглирования",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День летнего солнцестояния",
+        "type": "day"
+      },
+      {
+        "dayoff": false,
+        "title": "День памяти и скорби",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День балалайки",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День Республики Чувашия",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День работника статистики",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "",
+        "type": ""
+      },
+      {
+        "dayoff": false,
+        "title": "День изобретателя и рационализатора",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День российского букмекера",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День кораблестроителя",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День астероида",
+        "type": "un"
+      }
+    ],
+    [
+      {
+        "dayoff": false,
+        "title": "День ветеранов боевых действий",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День собак",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День ГИБДД",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День кооперативов",
+        "type": "un"
+      },
+      {
+        "dayoff": false,
+        "title": "День работников морского и речного флота",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День архитектора",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День образования авиалесоохраны",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День семьи, любви и верности",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День сахарного печенья",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День победы в Полтавском сражении",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День шоколада",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День рыбака",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День головоломки",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День смородины",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День русской лени",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День вкусной еды",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День этнографа",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День Нельсона Манделы",
+        "type": "un"
+      },
+      {
+        "dayoff": false,
+        "title": "День пирожков с малиновым вареньем",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День шахмат",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День нездоровой пищи",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День трудяги",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День дачника",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День флориста",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День работника торговли",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День парашютиста",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День работника МФЦ",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День Крещения Руси",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День тигра",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День дружбы",
+        "type": "un"
+      },
+      {
+        "dayoff": false,
+        "title": "День системного администратора",
+        "type": "int"
+      }
+    ],
+    [
+      {
+        "dayoff": false,
+        "title": "День инкассатора",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День ВДВ",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День арбуза",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День одиноких работающих женщин",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День светофора",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День Железнодорожных войск",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День пива",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День физкультурника",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День строителя",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День биодизеля",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День белого гриба",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День ВВС",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День левшей",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День ящерицы",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День археолога",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День малинового варенья",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День секонд-хенда",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День географа",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День рождения русской тельняшки",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День комара",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День офицера",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День Государственного флага РФ",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День победы в Курской битве",
+        "type": "war"
+      },
+      {
+        "dayoff": false,
+        "title": "День странной музыки",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День примирительного поцелуя",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День благодарности собаке",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День российского кино",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День военного медика",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День дальнобойщика",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День шахтера",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День ветеринарного работника",
+        "type": "prof"
+      }
+    ],
+    [
+      {
+        "dayoff": false,
+        "title": "День знаний",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День российской гвардии",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День прощания",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День стрельбы из лука",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День бороды",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День озера Байкал",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День чистого воздуха для голубого неба",
+        "type": "un"
+      },
+      {
+        "dayoff": false,
+        "title": "День финансиста",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День лука",
         "type": "mem"
       },
       {
@@ -977,8 +1428,18 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День трезвости",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День вязания крючком",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День танкиста",
+        "type": "prof"
       },
       {
         "dayoff": false,
@@ -987,85 +1448,200 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День свободных денег",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День HR-менеджера",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День безопасности пациентов",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День секретаря",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День оружейника",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День рекрутера",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День русского единения",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День без автомобиля",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День осеннего равноденствия",
+        "type": "day"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День караванщика",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День фармацевта",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "Европейский день языков",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День воспитателя",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День работника атомной промышленности",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День отоларинголога",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День интернета",
+        "type": "prof"
       }
     ],
     [
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День музыки",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День метростроителя",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День войлока",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День Космических войск",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День учителя",
+        "type": "un"
+      },
+      {
+        "dayoff": false,
+        "title": "День российского страховщика",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День хлопка",
+        "type": "un"
+      },
+      {
+        "dayoff": false,
+        "title": "День работников дополнительного образования",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День яйца",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День каши",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День работника сельского хозяйства",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День кадрового работника",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День инфобизнесмена",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День работников заповедного дела",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День мытья рук",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День хлеба",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День черники",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День пищевика",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День лицеиста",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День военного связиста",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День цемента",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День без бумаги",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День работников рекламы",
+        "type": "prof"
       },
       {
         "dayoff": false,
@@ -1074,621 +1650,45 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День автомобилиста",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День приятных неожиданностей",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День плюшевого мишки",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День бабушек и дедушек",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День ухода и поддержки",
+        "type": "un"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День инженера-механика",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День сурдопереводчика",
+        "type": "prof"
       }
     ],
     [
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      }
-    ],
-    [
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      }
-    ],
-    [
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      }
-    ],
-    [
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День гадания на кофейной гуще",
+        "type": "int"
       },
       {
         "dayoff": false,
@@ -1707,8 +1707,8 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День работника суда",
+        "type": "prof"
       },
       {
         "dayoff": false,
@@ -1717,130 +1717,245 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День холодца",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День пианиста",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День СОБР",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День кухонной мойки",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День экономиста",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День безопасника",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День фейерверкера",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День социолога",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День призывника",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День проектировщика",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День участковых",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День рождения Деда Мороза",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День стекольщика",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День работника транспорта",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День бухгалтера",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День психолога",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День акварели",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День моржа",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День гармониста",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День сапожника",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День самозанятых",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День сострадания",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День работника свеклосахарной отрасли",
+        "type": "prof"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День защиты информации",
+        "type": "int"
       }
     ],
     [
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День хоккея",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День банкира",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День юриста",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День информатики",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День волонтера",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День сетевика",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День любителей поспать",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День художника",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День Героев Отечества",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День прав животных",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День гор",
+        "type": "un"
+      },
+      {
+        "dayoff": false,
+        "title": "День Конституции Российской Федерации",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День медведя",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День обезьян",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День чая",
+        "type": "int"
+      },
+      {
+        "dayoff": false,
+        "title": "День лохматых",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День курьера",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День работников ЗАГС",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День снабженца",
+        "type": "prof"
+      },
+      {
+        "dayoff": false,
+        "title": "День солидарности людей",
+        "type": "un"
+      },
+      {
+        "dayoff": false,
+        "title": "День зимнего солнцестояния",
+        "type": "day"
+      },
+      {
+        "dayoff": false,
+        "title": "День российской карамели",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День дальней авиации",
+        "type": "mem"
+      },
+      {
+        "dayoff": false,
+        "title": "День варежки",
+        "type": "mem"
       },
       {
         "dayoff": false,
@@ -1849,148 +1964,33 @@
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День подарков",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День снежинок из бумаги",
+        "type": "mem"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День кино",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День виолончели",
+        "type": "int"
       },
       {
         "dayoff": false,
-        "title": "",
-        "type": ""
+        "title": "День страны, которой нет",
+        "type": "mem"
       },
       {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
-      },
-      {
-        "dayoff": false,
-        "title": "",
-        "type": ""
+        "dayoff": true,
+        "title": "Канун Нового года",
+        "type": "mem"
       }
     ]
   ]
